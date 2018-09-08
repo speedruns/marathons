@@ -1,0 +1,13 @@
+name: site
+description: |
+  A general application for managing marathon events, primarily oriented toward speedrunning.
+crystal: 0.26.1
+version: 0.1.0
+license: MIT
+
+authors:
+  - Jon <jonegeland@gmail.com>
+
+targets:
+  site:
+    main: src/site.cr
