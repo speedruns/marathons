@@ -1,0 +1,50 @@
+version: 1.0
+shards:
+  crecto:
+    github: crecto/crecto
+    version: 0.9.0
+
+  db:
+    github: crystal-lang/crystal-db
+    version: 0.5.0
+
+  dotenv:
+    github: gdotdesign/cr-dotenv
+    version: 0.1.0
+
+  exception_page:
+    github: crystal-loot/exception_page
+    version: 0.1.1
+
+  kemal:
+    github: kemalcr/kemal
+    version: 0.24.0
+
+  kilt:
+    github: jeromegn/kilt
+    version: 0.4.0
+
+  krout:
+    github: faultyserver/krout
+    commit: 0031ef83616b6e22e0500625db15d46b581c2cb8
+
+  migrate:
+    github: vladfaust/migrate.cr
+    version: 0.3.0
+
+  pg:
+    github: will/crystal-pg
+    version: 0.15.0
+
+  radix:
+    github: luislavena/radix
+    version: 0.3.8
+
+  slang:
+    github: jeromegn/slang
+    version: 1.7.1
+
+  time_format:
+    github: vladfaust/time_format.cr
+    version: 0.1.1
+

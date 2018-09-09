@@ -3,11 +3,34 @@ description: |
   A general application for managing marathon events, primarily oriented toward speedrunning.
 crystal: 0.26.1
 version: 0.1.0
-license: MIT
-
 authors:
   - Jon <jonegeland@gmail.com>
+license: MIT
 
 targets:
-  site:
-    main: src/site.cr
+  web:
+    main: src/marathons_web/main.cr
+  app:
+    main: src/app.cr
+  tool:
+    main: src/tool.cr
+
+dependencies:
+  crecto:
+    github: crecto/crecto
+  dotenv:
+    github: gdotdesign/cr-dotenv
+  kemal:
+    github: kemalcr/kemal
+  krout:
+    github: faultyserver/krout
+  migrate:
+    github: vladfaust/migrate.cr
+  pg:
+    github: will/crystal-pg
+  slang:
+    github: jeromegn/slang
+  # honcho:
+  #   github: faultyserver/honcho
+  # awscr-s3:
+  #   github: taylorfinnell/awscr-s3
