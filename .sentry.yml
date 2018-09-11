@@ -1,6 +1,6 @@
 display_name: Marathon Manager
 info: true
-build: shards build app
-run: ./bin/app
+build: shards build web
+run: ./bin/web
 watch:
   - src/**/*.cr

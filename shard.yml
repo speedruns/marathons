@@ -9,7 +9,7 @@ license: MIT
 
 targets:
   web:
-    main: src/marathons_web/main.cr
+    main: src/marathons_web/web.cr
   app:
     main: src/app.cr
   tool:

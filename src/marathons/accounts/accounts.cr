@@ -3,7 +3,7 @@ require "./models/**"
 module Accounts
   extend self
 
-  def create_user(**attrs)
+  def create_user(attrs)
     user = User.new.cast(attrs)
     Repo.insert(user)
   end
@@ -12,7 +12,7 @@ module Accounts
     Repo.all(User, query)
   end
 
-  def create_organization(**attrs)
+  def create_organization(attrs)
     organization = Organization.new.cast(attrs)
   end
 end

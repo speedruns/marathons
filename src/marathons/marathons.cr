@@ -1,4 +1,5 @@
-# require "./accounts/accounts.cr"
-# require "./admin/admin.cr"
-# require "./events/events.cr"
+require "./repo.cr"
+
+require "./accounts/accounts.cr"
+require "./events/events.cr"
 require "./inventory/inventory.cr"
