@@ -1,11 +1,11 @@
 {% extends "layouts/main.html.j2" %}
 
 {% block main %}
-  <h1 class="title">Listing Organizations</h1>
+  <h1 class="title">Listing Series</h1>
 
   <div class="field is-grouped">
     <p class="control">
-      <a href="/organizations/new" class="button is-primary">New Organization</a>
+      <a href="/series/new" class="button is-primary">New Series</a>
     </p>
   </div>
 
@@ -13,15 +13,13 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th>Owner</th>
       </tr>
     </thead>
 
     <tbody>
-      {% for org in orgs %}
+      {% for series in series_list %}
         <tr>
-          <td><a href="/organizations/{{org.id}}">{{ org.name }}</a></td>
-          <td><a href="/users/{{org.owner.id}}">{{ org.owner.name }}</a></td>
+          <td><a href="/series/{{series.id}}">{{ series.name }}</a></td>
         </tr>
       {% endfor %}
     </tbody>

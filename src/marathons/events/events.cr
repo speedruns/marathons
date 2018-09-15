@@ -3,19 +3,29 @@ require "./models/**"
 module Events
   extend self
 
+  ###
+  # Events
+  ###
+
+  def list_events(query : Query = Query.new)
+    Repo.all(Event, query)
+  end
+
+  def get_event(event_id, query : Query = Query.new)
+    Repo.get(Event, event_id, query)
+  end
+
+  def new_event()
+    Event.new
+  end
+
   def create_event(attrs)
     event = Event.new.cast(attrs)
+    Repo.insert(event)
   end
 
-  def create_submission(attrs)
-    submission = Submission.new.cast(attrs)
-  end
-
-  def create_submission_option(attrs)
-    option = Submission::Option.new.cast(attrs)
-  end
-
-  def create_submission_run(attrs)
-    run = Submission::Run.new.cast(attrs)
+  def update_event(event : Event, changes)
+    changeset = event.cast(changes)
+    Repo.update(changeset)
   end
 end

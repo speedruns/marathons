@@ -1,0 +1,29 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <h1 class="title">Listing Events</h1>
+
+  <div class="field is-grouped">
+    <p class="control">
+      <a href="/events/new" class="button is-primary">New Event</a>
+    </p>
+  </div>
+
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Organized By</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for event in events %}
+        <tr>
+          <td><a href="/events/{{event.id}}">{{ event.name }}</a></td>
+          <td><a href="/organizations/{{event.organization_id}}">{{ event.organization_id }}</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

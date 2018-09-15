@@ -2,24 +2,25 @@ require "krout"
 
 alias E = Krout::Env
 
+macro crud(name, singular, controller)
+  get   "/{{name.id}}", &->{{controller}}.index(E)
+  get   "/{{name.id}}/new", &->{{controller}}._new(E)
+  post  "/{{name.id}}/create", &->{{controller}}.create(E)
+  get   "/{{name.id}}/:{{singular.id}}_id", &->{{controller}}.show(E)
+  get   "/{{name.id}}/:{{singular.id}}_id/edit", &->{{controller}}.edit(E)
+  post  "/{{name.id}}/:{{singular.id}}_id/update", &->{{controller}}.update(E)
+end
+
 
 ###
 # Admin
 ###
 
-# Users
-get   "/users", &->UsersController.index(E)
-get   "/users/new", &->UsersController._new(E)
-post  "/users/create", &->UsersController.create(E)
-get   "/users/:user_id", &->UsersController.show(E)
-get   "/users/:user_id/edit", &->UsersController.edit(E)
-post  "/users/:user_id/update", &->UsersController.update(E)
+crud :users, "user", UsersController
+crud :organizations, "org", OrganizationsController
 
+crud :events, "event", EventsController
 
-# Organizations
-get   "/organizations", &->OrganizationsController.index(E)
-get   "/organizations/new", &->OrganizationsController._new(E)
-post  "/organizations/create", &->OrganizationsController.create(E)
-get   "/organizations/:org_id", &->OrganizationsController.show(E)
-get   "/organizations/:org_id/edit", &->OrganizationsController.edit(E)
-post  "/organizations/:org_id/update", &->OrganizationsController.update(E)
+crud :series, "series", SeriesController
+crud :games, "game", GamesController
+crud :categories, "category", CategoriesController

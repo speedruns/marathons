@@ -1,0 +1,22 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <div class="column is-two-fifths">
+    <div class="card">
+      <div class="card-content">
+        <p class="title is-4">{{game.name}}</p>
+        <p class="subtitle is-6">
+          Owned by
+          <a href="/series/{{game.series_id}}">
+            {{game.series.name}}
+          </a>
+        </p>
+      </div>
+
+      <footer class="card-footer">
+        <a href="/games/{{game.id}}/edit" class="card-footer-item">
+          Edit
+        </a>
+    </div>
+  </div>
+{% endblock %}

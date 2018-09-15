@@ -1,0 +1,16 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <div class="column is-two-fifths">
+    <div class="card">
+      <div class="card-content">
+        <p class="title is-4">{{series.name}}</p>
+      </div>
+
+      <footer class="card-footer">
+        <a href="/series/{{series.id}}/edit" class="card-footer-item">
+          Edit
+        </a>
+    </div>
+  </div>
+{% endblock %}

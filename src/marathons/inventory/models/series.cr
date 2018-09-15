@@ -5,5 +5,12 @@ module Inventory
 
       has_many :games, Game
     end
+
+    def to_h
+      {
+        "id" => id,
+        "name" => name
+      }
+    end
   end
 end

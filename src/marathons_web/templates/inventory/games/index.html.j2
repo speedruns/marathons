@@ -1,11 +1,11 @@
 {% extends "layouts/main.html.j2" %}
 
 {% block main %}
-  <h1 class="title">Listing Organizations</h1>
+  <h1 class="title">Listing Games</h1>
 
   <div class="field is-grouped">
     <p class="control">
-      <a href="/organizations/new" class="button is-primary">New Organization</a>
+      <a href="/games/new" class="button is-primary">New Game</a>
     </p>
   </div>
 
@@ -18,10 +18,9 @@
     </thead>
 
     <tbody>
-      {% for org in orgs %}
+      {% for game in games %}
         <tr>
-          <td><a href="/organizations/{{org.id}}">{{ org.name }}</a></td>
-          <td><a href="/users/{{org.owner.id}}">{{ org.owner.name }}</a></td>
+          <td><a href="/games/{{game.id}}">{{ game.name }}</a></td>
         </tr>
       {% endfor %}
     </tbody>

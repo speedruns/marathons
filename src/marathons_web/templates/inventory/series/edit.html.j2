@@ -1,0 +1,18 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <h1 class="title">Edit Series</h1>
+
+  <form method="POST" action="/series/{{series.id}}/update">
+    {% include "inventory/series/_form.html.j2" %}
+
+    <div class="field is-grouped">
+      <div class="control">
+        <input type="submit" value="Update Series" class="button is-link">
+      </div>
+      <div class="control">
+        <a href="/series" class="button is-text">Cancel</a>
+      </div>
+    </div>
+  </form>
+{% endblock %}
