@@ -7,3 +7,6 @@
 # Environment configuration is per-machine and not versioned.
 # `.env.example` is used for general explanation
 .env
+
+# Cache files
+*.DS_Store

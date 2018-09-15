@@ -1,0 +1,17 @@
+{% macro text_field(name, placeholder="", value=none) %}
+  <div class="field">
+    <label class="label">{{name}}</label>
+    <div class="control">
+      <input class="input" type="text" name="{{name}}" placeholder="{{placeholder}}" value="{{value|d('')}}">
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro password_field(name, placeholder="", value=none) %}
+  <div class="field">
+    <label class="label">{{name}}</label>
+    <div class="control">
+      <input class="input" type="password" name="{{name}}" placeholder="{{placeholder}}" value="{{value|d('')}}">
+    </div>
+  </div>
+{% endmacro %}

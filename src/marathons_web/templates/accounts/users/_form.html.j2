@@ -1,0 +1,50 @@
+<div class="field">
+  <label class="label">Name</label>
+  <div class="control">
+    <input class="input" type="text" name="name" placeholder="username" value="{{user.name|d('')}}">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Discord</label>
+  <div class="control has-icons-left">
+    <input class="input" type="text" name="discord" placeholder="discord#0000" value="{{user.discord|d('')}}">
+    <span class="icon is-small is-left">
+      <i class="fab fa-discord"></i>
+    </span>
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Twitter</label>
+  <div class="control has-icons-left">
+    <input class="input" type="text" name="twitter" placeholder="twitter handle" value="{{user.twitter|d('')}}">
+    <span class="icon is-small is-left">
+      <i class="fas fa-at"></i>
+    </span>
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Twitch</label>
+  <div class="control has-icons-left">
+    <input class="input" type="text" name="twitch" placeholder="twitch" value="{{user.twitch|d('')}}">
+    <span class="icon is-small is-left">
+      <i class="fab fa-twitch"></i>
+    </span>
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Timezone</label>
+  <div class="control">
+    <input class="input" type="text" name="timezone" placeholder="EST, GMT, UTC+2" value="{{user.timezone|d('')}}">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Password</label>
+  <div class="control">
+    <input class="input" type="text" name="password" value="{{user.password|d('')}}">
+  </div>
+</div>

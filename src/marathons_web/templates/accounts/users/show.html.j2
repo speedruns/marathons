@@ -1,0 +1,29 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <div class="column is-two-fifths">
+    <div class="card">
+      <div class="card-content">
+        <p class="title is-4">{{user.name}}</p>
+        <p class="subtitle is-6">
+          {% if user.discord %}
+            <span class="fab fa-discord fa-w-16"></span> {{user.discord}}
+          {% endif %}
+        <br>
+          {% if user.twitter %}
+            <span class="fab fa-twitter fa-w-16"></span> {{user.twitter}}
+          {% endif %}
+        <br>
+          {% if user.twitch %}
+            <span class="fab fa-twitch fa-w-16"></span> {{user.twitch}}
+          {% endif %}
+        </p>
+      </div>
+
+      <footer class="card-footer">
+        <a href="/users/{{user.id}}/edit" class="card-footer-item">
+          Edit
+        </a>
+    </div>
+  </div>
+{% endblock %}

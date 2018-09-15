@@ -1,0 +1,18 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <h1 class="title">Edit Organization</h1>
+
+  <form method="POST" action="/organizations/{{org.id}}/update">
+    {% include "accounts/organizations/_form.html.j2" %}
+
+    <div class="field is-grouped">
+      <div class="control">
+        <input type="submit" value="Update Organization" class="button is-link">
+      </div>
+      <div class="control">
+        <a href="/organizations" class="button is-text">Cancel</a>
+      </div>
+    </div>
+  </form>
+{% endblock %}

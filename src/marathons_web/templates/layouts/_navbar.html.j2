@@ -1,0 +1,33 @@
+<nav class="navbar has-shadow">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item is-strong">Marathons</a>
+      <a role="button" class="navbar-burger">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="/users">Users</a>
+        <a class="navbar-item" href="/organizations">Organizations</a>
+        <a class="navbar-item" href="/events">Events</a>
+        <a class="navbar-item" href="/series">Series</a>
+        <a class="navbar-item" href="/games">Games</a>
+        <a class="navbar-item" href="/categories">Categories</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    const burger = document.querySelector('.navbar .navbar-burger');
+    const menu = document.querySelector('.navbar .navbar-menu');
+    burger.addEventListener('click', function(evt) {
+      burger.classList.toggle('is-active');
+      menu.classList.toggle('is-active');
+    })
+  </script>
+</nav>
+

@@ -18,6 +18,8 @@ targets:
 dependencies:
   crecto:
     github: crecto/crecto
+  crinja:
+    github: straight-shoota/crinja
   dotenv:
     github: gdotdesign/cr-dotenv
   kemal:
@@ -28,8 +30,6 @@ dependencies:
     github: vladfaust/migrate.cr
   pg:
     github: will/crystal-pg
-  slang:
-    github: jeromegn/slang
   # honcho:
   #   github: faultyserver/honcho
   # awscr-s3:

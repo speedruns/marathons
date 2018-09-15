@@ -1,0 +1,29 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <h1 class="title">Listing Users</h1>
+
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Discord</th>
+        <th>Twitch</th>
+        <th>Twitter</th>
+        <th>Timezone</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for user in users %}
+        <tr>
+          <td><a href="/users/{{user.id}}">{{ user.name }}</a></td>
+          <td>{{ user.discord }}</td>
+          <td>{{ user.twitch }}</td>
+          <td>{{ user.twitter }}</td>
+          <td>{{ user.timezone }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

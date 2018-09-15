@@ -8,9 +8,11 @@ module Accounts
       belongs_to :owner, User, foreign_key: :owner_id
     end
 
+    field :hio, String
+
 
     validate_required :name
-    validate_required :owner
+    validate_required :owner_id
 
 
     def password=(new_password : String)
@@ -20,6 +22,16 @@ module Accounts
 
     def password_matches?(other_password : String)
       Crypto::Bcrypt::Password.new(@encrypted_password.not_nil!) == other_password
+    end
+
+
+    def to_h
+      {
+        "id" => id,
+        "name" => name,
+        "owner_id" => owner_id,
+        "owner" => owner_id ? owner.to_h : nil
+      }
     end
   end
 end

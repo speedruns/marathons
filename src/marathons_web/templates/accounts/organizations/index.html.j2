@@ -1,0 +1,23 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <h1 class="title">Listing Organizations</h1>
+
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Owner</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for org in orgs %}
+        <tr>
+          <td><a href="/organizations/{{org.id}}">{{ org.name }}</a></td>
+          <td><a href="/users/{{org.owner.id}}">{{ org.owner.name }}</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

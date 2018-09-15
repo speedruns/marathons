@@ -1,0 +1,18 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <h1 class="title">New User</h1>
+
+  <form method="POST" action="/users/create">
+    {% include "accounts/users/_form.html.j2" %}
+
+    <div class="field is-grouped">
+      <div class="control">
+        <input type="submit" value="Create User" class="button is-link">
+      </div>
+      <div class="control">
+        <a href="/users" class="button is-text">Cancel</a>
+      </div>
+    </div>
+  </form>
+{% endblock %}

@@ -28,5 +28,19 @@ module Accounts
     def password_matches?(other_password : String)
       Crypto::Bcrypt::Password.new(@encrypted_password.not_nil!) == other_password
     end
+
+
+    def to_h
+      {
+        "id" => id,
+        "name" => name,
+        "discord" => discord,
+        "twitch" => twitch,
+        "twitter" => twitter,
+        "timezone" => twitter,
+        "avatar_object_id" => avatar_object_id,
+        "admin" => admin
+      }
+    end
   end
 end
