@@ -4,13 +4,13 @@ module SeriesController
   def index(env)
     series = Inventory.list_series()
     series = series.map(&.to_h)
-    Template.render("inventory/series/index.html.j2", series_list: series)
+    Template.render(env, "inventory/series/index.html.j2", series_list: series)
   end
 
   def show(env)
     series_id = env.params.url["series_id"]
     if series = Inventory.get_series(series_id)
-      Template.render("inventory/series/show.html.j2", series: series.to_h)
+      Template.render(env, "inventory/series/show.html.j2", series: series.to_h)
     else
       env.redirect("/series")
     end
@@ -18,7 +18,7 @@ module SeriesController
 
   def _new(env)
     series = Inventory.new_series()
-    Template.render("inventory/series/new.html.j2", series: series.to_h)
+    Template.render(env, "inventory/series/new.html.j2", series: series.to_h)
   end
 
   def create(env)
@@ -30,7 +30,7 @@ module SeriesController
   def edit(env)
     series_id = env.params.url["series_id"]
     if series = Inventory.get_series(series_id)
-      Template.render("inventory/series/edit.html.j2", series: series.to_h)
+      Template.render(env, "inventory/series/edit.html.j2", series: series.to_h)
     else
       env.redirect("/series")
     end

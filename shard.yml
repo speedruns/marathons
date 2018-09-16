@@ -8,8 +8,8 @@ authors:
 license: MIT
 
 targets:
-  web:
-    main: src/marathons_web/web.cr
+  admin_web:
+    main: src/admin_web/web.cr
   app:
     main: src/app.cr
   tool:

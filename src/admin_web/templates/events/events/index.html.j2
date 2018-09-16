@@ -13,6 +13,7 @@
     <thead>
       <tr>
         <th>Name</th>
+        <th>Event link</th>
         <th>Organized By</th>
       </tr>
     </thead>
@@ -21,6 +22,7 @@
       {% for event in events %}
         <tr>
           <td><a href="/events/{{event.id}}">{{ event.name }}</a></td>
+          <td><a href="//{{event.subdomain}}.localhost:3000">{{event.subdomain}}.localhost:3000</a></td>
           <td><a href="/organizations/{{event.organization_id}}">{{ event.organization.name }}</a></td>
         </tr>
       {% endfor %}

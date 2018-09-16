@@ -4,6 +4,7 @@ module Events
       field :name, String
       field :start_date, String
       field :end_date, String
+      field :subdomain, String
 
       belongs_to :organization, Accounts::Organization
     end
@@ -17,6 +18,7 @@ module Events
         "name" => name,
         "start_date" => start_date,
         "end_date" => end_date,
+        "subdomain" => subdomain,
         "organization_id" => organization_id,
         "organization" => organization?.try(&.to_h)
       }

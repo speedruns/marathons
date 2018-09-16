@@ -4,13 +4,13 @@ module GamesController
   def index(env)
     games = Inventory.list_games(Query.preload(:series))
     games = games.map(&.to_h)
-    Template.render("inventory/games/index.html.j2", games: games)
+    Template.render(env, "inventory/games/index.html.j2", games: games)
   end
 
   def show(env)
     game_id = env.params.url["game_id"]
     if game = Inventory.get_game(game_id, Query.preload(:series))
-      Template.render("inventory/games/show.html.j2", game: game.to_h)
+      Template.render(env, "inventory/games/show.html.j2", game: game.to_h)
     else
       env.redirect("/games")
     end
@@ -19,7 +19,7 @@ module GamesController
   def _new(env)
     game = Inventory.new_game()
     series = Inventory.list_series().map{ |s| {name: s.name, id: s.id} }
-    Template.render("inventory/games/new.html.j2", game: game.to_h, series_list: series)
+    Template.render(env, "inventory/games/new.html.j2", game: game.to_h, series_list: series)
   end
 
   def create(env)
@@ -32,7 +32,7 @@ module GamesController
     game_id = env.params.url["game_id"]
     if game = Inventory.get_game(game_id, Query.preload(:series))
       series = Inventory.list_series().map{ |s| {name: s.name, id: s.id} }
-      Template.render("inventory/games/edit.html.j2", game: game.to_h, series_list: series)
+      Template.render(env, "inventory/games/edit.html.j2", game: game.to_h, series_list: series)
     else
       env.redirect("/games")
     end

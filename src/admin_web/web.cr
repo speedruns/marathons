@@ -8,5 +8,4 @@ require "./views/**"
 require "./controllers/**"
 require "./router.cr"
 
-
 Kemal.run
