@@ -1,0 +1,6 @@
+display_name: Marathons - Events Web
+info: true
+build: shards build events_web
+run: ./bin/events_web
+watch:
+  - src/events_web/**/*.cr

@@ -1,6 +1,1 @@
-display_name: Marathon Manager
-info: true
-build: shards build admin_web
-run: ./bin/admin_web
-watch:
-  - src/**/*.cr
+./.sentry.events.yml

@@ -12,6 +12,8 @@ targets:
     main: src/admin_web/web.cr
   app:
     main: src/app.cr
+  events_web:
+    main: src/events_web/web.cr
   tool:
     main: src/tool.cr
 
@@ -28,9 +30,11 @@ dependencies:
     github: faultyserver/krout
   migrate:
     github: vladfaust/migrate.cr
+  orion:
+    github: obsidian/orion
   pg:
     github: will/crystal-pg
-  # honcho:
-  #   github: faultyserver/honcho
-  # awscr-s3:
-  #   github: taylorfinnell/awscr-s3
+  # # For managing Admin and Events as a single application:
+  # http-multiserver:
+  #   github: vladfaust/http-multiserver.cr
+  #   version: ~> 0.2.0
