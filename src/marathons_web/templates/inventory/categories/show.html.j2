@@ -4,7 +4,14 @@
   <div class="column is-two-fifths">
     <div class="card">
       <div class="card-content">
-        <p class="title is-4">{{category.name}}</p>
+        <p class="title is-4">
+          <a href="/games/{{category.game_id}}">{{category.game.name}}</a>
+          -
+          {{category.name}}
+        </p>
+        <p>
+          {{category.rules}}
+        </p>
       </div>
 
       <footer class="card-footer">

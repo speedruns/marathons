@@ -2,14 +2,14 @@ module EventsController
   extend self
 
   def index(env)
-    events = Events.list_events()
+    events = Events.list_events(Query.preload(:organization))
     events = events.map(&.to_h)
     Template.render("events/events/index.html.j2", events: events)
   end
 
   def show(env)
     event_id = env.params.url["event_id"]
-    if event = Events.get_event(event_id)
+    if event = Events.get_event(event_id, Query.preload(:organization))
       Template.render("events/events/show.html.j2", event: event.to_h)
     else
       env.redirect("/events")
@@ -18,7 +18,8 @@ module EventsController
 
   def _new(env)
     event = Events.new_event()
-    Template.render("events/events/new.html.j2", event: event.to_h)
+    orgs = Accounts.list_organizations().map{ |o| {name: o.name, id: o.id} }
+    Template.render("events/events/new.html.j2", event: event.to_h, orgs: orgs)
   end
 
   def create(env)
@@ -29,8 +30,9 @@ module EventsController
 
   def edit(env)
     event_id = env.params.url["event_id"]
-    if event = Events.get_event(event_id)
-      Template.render("events/events/edit.html.j2", event: event.to_h)
+    if event = Events.get_event(event_id, Query.preload(:organization))
+      orgs = Accounts.list_organizations().map{ |o| {name: o.name, id: o.id} }
+      Template.render("events/events/edit.html.j2", event: event.to_h, orgs: orgs)
     else
       env.redirect("/events")
     end

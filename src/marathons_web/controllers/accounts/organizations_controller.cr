@@ -18,12 +18,12 @@ module OrganizationsController
 
   def _new(env)
     org = Accounts.new_organization()
-    Template.render("accounts/organizations/new.html.j2", org: org.to_h)
+    users = Accounts.list_users().map{ |u| {name: u.name, id: u.id} }
+    Template.render("accounts/organizations/new.html.j2", org: org.to_h, users: users)
   end
 
   def create(env)
     params = env.params.body
-    params["owner_id"] = Accounts.list_users().first.id.to_s
     Accounts.create_organization(params)
     env.redirect("/organizations")
   end
@@ -31,7 +31,8 @@ module OrganizationsController
   def edit(env)
     org_id = env.params.url["org_id"]
     if org = Accounts.get_organization(org_id, Query.preload(:owner))
-      Template.render("accounts/organizations/edit.html.j2", org: org.to_h)
+      users = Accounts.list_users().map{ |u| {name: u.name, id: u.id} }
+      Template.render("accounts/organizations/edit.html.j2", org: org.to_h, users: users)
     else
       env.redirect("/organizations")
     end

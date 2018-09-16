@@ -4,3 +4,21 @@
     <input class="input" type="text" name="name" placeholder="Event name" value="{{event.name|d('')}}">
   </div>
 </div>
+
+<div class="field">
+  <label class="label">Organized by</label>
+  <div class="control">
+    <div class="select">
+      <select name="organization_id">
+        {% for org in orgs %}
+          <option
+            value="{{org.id}}"
+            {% if org.id == event.organization_id %}
+              selected
+            {% endif %}
+          >{{org.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>

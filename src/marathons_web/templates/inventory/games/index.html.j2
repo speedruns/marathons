@@ -13,7 +13,7 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th>Owner</th>
+        <th>Series</th>
       </tr>
     </thead>
 
@@ -21,6 +21,7 @@
       {% for game in games %}
         <tr>
           <td><a href="/games/{{game.id}}">{{ game.name }}</a></td>
+          <td><a href="/series/{{game.series_id}}">{{ game.series.name }}</a></td>
         </tr>
       {% endfor %}
     </tbody>

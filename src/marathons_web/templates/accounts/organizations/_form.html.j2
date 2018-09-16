@@ -4,3 +4,21 @@
     <input class="input" type="text" name="name" placeholder="Org name" value="{{org.name|d('')}}">
   </div>
 </div>
+
+<div class="field">
+  <label class="label">Owner</label>
+  <div class="control">
+    <div class="select">
+      <select name="owner_id">
+        {% for user in users %}
+          <option
+            value="{{user.id}}"
+            {% if user.id == org.owner_id %}
+              selected
+            {% endif %}
+          >{{user.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>

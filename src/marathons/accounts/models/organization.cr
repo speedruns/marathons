@@ -30,7 +30,7 @@ module Accounts
         "id" => id,
         "name" => name,
         "owner_id" => owner_id,
-        "owner" => owner_id ? owner.to_h : nil
+        "owner" => owner?.try(&.to_h)
       }
     end
   end

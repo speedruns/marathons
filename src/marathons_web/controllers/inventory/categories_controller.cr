@@ -2,14 +2,14 @@ module CategoriesController
   extend self
 
   def index(env)
-    categories = Inventory.list_categories()
+    categories = Inventory.list_categories(Query.preload(:game))
     categories = categories.map(&.to_h)
     Template.render("inventory/categories/index.html.j2", categories: categories)
   end
 
   def show(env)
     category_id = env.params.url["category_id"]
-    if category = Inventory.get_category(category_id, Query.preload(:owner))
+    if category = Inventory.get_category(category_id, Query.preload(:game))
       Template.render("inventory/categories/show.html.j2", category: category.to_h)
     else
       env.redirect("/categories")
@@ -18,7 +18,8 @@ module CategoriesController
 
   def _new(env)
     category = Inventory.new_category()
-    Template.render("inventory/categories/new.html.j2", category: category.to_h)
+    games = Inventory.list_games().map{ |g| {name: g.name, id: g.id} }
+    Template.render("inventory/categories/new.html.j2", category: category.to_h, games: games)
   end
 
   def create(env)
@@ -29,8 +30,9 @@ module CategoriesController
 
   def edit(env)
     category_id = env.params.url["category_id"]
-    if category = Inventory.get_category(category_id, Query.preload(:owner))
-      Template.render("inventory/categories/edit.html.j2", category: category.to_h)
+    if category = Inventory.get_category(category_id, Query.preload(:game))
+      games = Inventory.list_games().map{ |g| {name: g.name, id: g.id} }
+      Template.render("inventory/categories/edit.html.j2", category: category.to_h, games: games)
     else
       env.redirect("/categories")
     end

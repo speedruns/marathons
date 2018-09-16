@@ -17,7 +17,8 @@ module Events
         "name" => name,
         "start_date" => start_date,
         "end_date" => end_date,
-        "organization" => organization_id ? organization.to_h : nil,
+        "organization_id" => organization_id,
+        "organization" => organization?.try(&.to_h)
       }
     end
   end

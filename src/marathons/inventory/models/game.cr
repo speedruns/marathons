@@ -17,7 +17,8 @@ module Inventory
         "name" => name,
         "series_number" => series_number,
         "twitch_id" => twitch_id,
-        "series" => series_id ? series.to_h : nil
+        "series_id" => series_id,
+        "series" => series?.try(&.to_h)
       }
     end
   end

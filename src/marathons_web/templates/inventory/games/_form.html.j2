@@ -4,3 +4,21 @@
     <input class="input" type="text" name="name" value="{{game.name|d('')}}">
   </div>
 </div>
+
+<div class="field">
+  <label class="label">Series</label>
+  <div class="control">
+    <div class="select">
+      <select name="series_id">
+        {% for series in series_list %}
+          <option
+            value="{{series.id}}"
+            {% if series.id == game.series_id %}
+              selected
+            {% endif %}
+          >{{series.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>

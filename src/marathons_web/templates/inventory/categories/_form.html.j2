@@ -1,6 +1,39 @@
+<div class="level">
+  <div class="level-left">
+    <div class="level-item">
+      <div class="field">
+        <label class="label">Game</label>
+        <div class="control">
+          <div class="select">
+            <select name="game_id">
+              {% for game in games %}
+                <option
+                  value="{{game.id}}"
+                  {% if game.id == category.game_id %}
+                    selected
+                  {% endif %}
+                >{{game.name}}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="level-item">
+      <div class="field">
+        <label class="label">Name</label>
+        <div class="control is-expanded">
+          <input class="input" type="text" name="name" placeholder="Category name" value="{{category.name|d('')}}">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="field">
-  <label class="label">Name</label>
+  <label class="label">Rules</label>
   <div class="control">
-    <input class="input" type="text" name="name" placeholder="Org name" value="{{org.name|d('')}}">
+    <textarea class="textarea" name="rules" placeholder="Start when you start, end when you end">{{category.rules|d('')}}</textarea>
   </div>
 </div>

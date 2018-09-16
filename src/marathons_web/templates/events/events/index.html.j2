@@ -21,7 +21,7 @@
       {% for event in events %}
         <tr>
           <td><a href="/events/{{event.id}}">{{ event.name }}</a></td>
-          <td><a href="/organizations/{{event.organization_id}}">{{ event.organization_id }}</a></td>
+          <td><a href="/organizations/{{event.organization_id}}">{{ event.organization.name }}</a></td>
         </tr>
       {% endfor %}
     </tbody>

@@ -12,7 +12,8 @@ module Inventory
         "id" => id,
         "name" => name,
         "rules" => rules,
-        "game" => game_id ? game.to_h : nil
+        "game_id" => game_id,
+        "game" => game?.try(&.to_h)
       }
     end
   end
