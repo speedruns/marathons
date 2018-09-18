@@ -3,6 +3,8 @@ module Events
     schema "ev_sub_runs" do
       belongs_to :submission, Submission
 
+      field :description, String
+      field :video_link, String
       field :estimate_ms, Int32
       field :pb_ms, Int32
 
