@@ -1,0 +1,39 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <h1 class="title">Listing Submissions</h1>
+
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Runner</th>
+        <th>Game / Category</th>
+        <th>Estimate / PB</th>
+        <th>Description</th>
+        <th>Video</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for submission in submissions %}
+        <tr>
+          <td><a href="/runners/{{submission.account_id}}">{{ submission.account.name }}</a></td>
+          <td>
+            <a href="/games/{{submission.game_id}}">{{ submission.game.name }}</a>
+            &ndash;
+            <a href="/categories/{{submission.category_id}}">{{ submission.category.name }}</a>
+          </td>
+          <td>
+            <strong>{{ submission.estimate }}</strong>
+            <br>
+            {{submission.pb}}
+          </td>
+          <td>{{ submission.description }}</td>
+          <td>{{ submission.video_link|urlize(nofollow=true) }}</td>
+          <td>{{ submission.status }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

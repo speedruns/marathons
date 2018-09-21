@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/bulma.min.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+  </head>
+
+  <body>
+    {% include "layouts/_navbar.html.j2" %}
+
+    <section class="hero is-small is-primary is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Spyrothon 4
+          </h1>
+          <h2 class="subtitle">
+            November 17th-18th 2018
+          </h2>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <main>
+        <div class="container">
+          {% block main %}{% endblock %}
+        </div>
+      </main>
+    </section>
+  </body>
+</html>

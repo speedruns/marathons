@@ -95,7 +95,6 @@ CREATE TABLE IF NOT EXISTS "public"."ev_sub_runs" (
   FOREIGN KEY ("category_id") REFERENCES "public"."inv_categories"("id"),
   FOREIGN KEY ("game_id") REFERENCES "public"."inv_games"("id"),
   PRIMARY KEY ("id")
-
 );
 
 CREATE TABLE IF NOT EXISTS "public"."ev_sub_options" (

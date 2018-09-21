@@ -1,0 +1,111 @@
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="description">Game</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control is-expanded">
+        <div class="select">
+          <select name="game_id">
+            {% for game in games %}
+              <option
+                value="{{game.id}}"
+                {% if game.id == submission.game_id %}
+                  selected
+                {% endif %}
+              >{{game.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="description">Category</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control is-expanded">
+        <div class="select">
+          <select name="category_id">
+            {% for category in categories %}
+              <option
+                value="{{category.id}}"
+                {% if category.id == submission.category_id %}
+                  selected
+                {% endif %}
+              >{{category.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="description">Description</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control is-expanded">
+        <textarea class="textarea" name="description" placeholder="This run features...">{{submission.description}}</textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="video_link">Video Link</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control is-expanded">
+        <input class="input" type="text" name="video_link" value="{{submission.video_link}}" placeholder="https://www.youtube.com/watch?v=MAXvS5nfBJo">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="estimate">Estimate</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control is-expanded">
+        <input class="input" type="text" name="estimate" value="{{submission.estimate}}" placeholder="00:00:00.000">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="pb">PB</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control is-expanded">
+        <input class="input" type="text" name="pb" value="{{submission.pb}}" placeholder="00:00:00.000">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control is-expanded">
+        <input class="button is-primary" type="submit" value="Submit">
+      </div>
+    </div>
+  </div>
+</div>

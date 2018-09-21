@@ -1,7 +1,5 @@
-class StaticController
-  include Orion::ControllerHelper
-
+class StaticController < AppController
   def index()
-    CustomTemplate.render(@context, "static/home.html.j2")
+    Template.render(@context, "static/home.html.j2")
   end
 end

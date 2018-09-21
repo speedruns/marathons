@@ -1,0 +1,7 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <form action="/submissions" method="POST">
+    {% include "submissions/_form.html.j2" %}
+  </form>
+{% endblock %}
