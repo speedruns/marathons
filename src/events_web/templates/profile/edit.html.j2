@@ -1,0 +1,8 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <h1 class="title">Edit your account</h1>
+  <form action="/profile" method="POST">
+    {% include "profile/_form.html.j2" %}
+  </form>
+{% endblock %}

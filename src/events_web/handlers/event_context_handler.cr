@@ -10,7 +10,9 @@ class EventContextHandler
   def call(conn : HTTP::Server::Context)
     unless evt = resolve_event_context(conn)
       puts evt
-      Template.render(conn, "errors/404.html.j2", resource: conn.request.resource)
+      Template.render(conn, "errors/404.html.j2", {
+        "resource" => conn.request.resource
+      })
       return
     end
 

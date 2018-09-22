@@ -3,10 +3,10 @@ require "orion"
 
 require "../marathons/marathons.cr"
 
+require "./router.cr"
 require "./util/**"
 require "./controllers/**"
 require "./handlers/**"
-require "./router.cr"
 
 PORT = 3000
 
