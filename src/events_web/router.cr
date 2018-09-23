@@ -17,8 +17,12 @@ router EventsWebRouter do
 
   root controller: StaticController, action: index
 
-  resources :submissions do
+  scope do
+    resources :submissions, only: [:index, :show]
+
     use AuthenticationHandler
+    resources :submissions, except: [:index, :show]
+    get "/submit", controller: SubmissionsController, action: new
   end
 
   ## Profiles
@@ -30,7 +34,7 @@ router EventsWebRouter do
   end
 
   ## Sessions
-  get   "/login", controller: SessionsController, action: _new, helper: "login"
+  get   "/login", controller: SessionsController, action: new, helper: "login"
   post  "/login", controller: SessionsController, action: create
   get   "/logout", controller: SessionsController, action: delete, helper: "logout"
 

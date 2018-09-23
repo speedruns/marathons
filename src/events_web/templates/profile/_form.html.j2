@@ -1,15 +1,79 @@
 <div class="field is-horizontal">
   <div class="field-label is-normal">
-    <label class="label" for="name">Display name</label>
+    <label class="label" for="name">Name</label>
   </div>
   <div class="field-body">
     <div class="field">
       <div class="control is-expanded">
-        <input class="input" type="text" name="name" placeholder="username" value="{{user.name|d('')}}">
+        <input class="input" type="text" name="name" required placeholder="username" value="{{user.name|d('')}}">
       </div>
     </div>
   </div>
 </div>
+
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="discord">Discord</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control has-icons-left is-expanded">
+        <input class="input" type="text" name="discord" placeholder="discord#0000" value="{{user.discord|d('')}}">
+        <span class="icon is-small is-left">
+          <i class="fab fa-discord"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="twitter">Twitter</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control has-icons-left is-expanded">
+        <input class="input" type="text" name="twitter" placeholder="twitter handle" value="{{user.twitter|d('')}}">
+        <span class="icon is-small is-left">
+          <i class="fas fa-at"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="twitch">Twitch</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control has-icons-left is-expanded">
+        <input class="input" type="text" name="twitch" placeholder="twitch" value="{{user.twitch|d('')}}">
+        <span class="icon is-small is-left">
+          <i class="fab fa-twitch"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="timezone">Timezone</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control is-expanded">
+        <input class="input" type="text" name="timezone" placeholder="EST, GMT, UTC+2" value="{{user.timezone|d('')}}">
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="field is-horizontal">
   <div class="field-label is-normal">
@@ -18,7 +82,7 @@
   <div class="field-body">
     <div class="field">
       <div class="control is-expanded">
-        <input class="input" type="password" name="password" placeholder="password">
+        <input class="input" type="password" name="password" required>
       </div>
     </div>
   </div>
@@ -31,20 +95,7 @@
   <div class="field-body">
     <div class="field">
       <div class="control is-expanded">
-        <input class="input" type="password" name="password_confirm" placeholder="confirm password">
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="field is-horizontal">
-  <div class="field-label">
-  </div>
-  <div class="field-body">
-    <div class="field">
-      <div class="control is-expanded">
-        <input class="button is-primary" type="submit" value="Submit">
+        <input class="input" type="password" name="password_confirm" required>
       </div>
     </div>
   </div>

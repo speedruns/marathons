@@ -1,5 +1,5 @@
 class SessionsController < EventsWebController
-  def _new
+  def new
     user = Accounts.new_user().to_h
     redirect = request.query_params["redirect"]?
     Template.render(@context, "sessions/new.html.j2", {
@@ -39,7 +39,20 @@ class SessionsController < EventsWebController
   end
 
   def delete
-    Accounts.invalidate_session(@context.session)
+    if @context.session
+      Accounts.invalidate_session(@context.session)
+      @context.response.headers.add("Cache-Control", "no-cache, no-store, must-revalidate")
+      @context.response.headers.add("Pragma", "no-cache")
+      @context.response.headers.add("Expires", "0")
+      @context.response.cookies << HTTP::Cookie.new(
+        name: "marathons_session_id",
+        value: "",
+        domain: nil,
+        expires: Time.epoch(0),
+        http_only: true
+      )
+    end
+
     redirect_to root_path
   end
 end

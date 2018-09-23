@@ -1,7 +1,7 @@
 <nav class="navbar has-shadow">
   <div class="container">
     <div class="navbar-brand">
-      <p class="navbar-item has-text-weight-bold">Spyrothon</p>
+      <a class="navbar-item has-text-weight-bold" href="/">Spyrothon</a>
       <a role="button" class="navbar-burger">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -11,12 +11,20 @@
 
     <div class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item" href="https://twitch.tv/spyrothon"><i class="fab fa-twitch"></i></a>
-        <a class="navbar-item" href="https://twitch.tv/spyrothon"><i class="fab fa-discord"></i></a>
-        <a class="navbar-item" href="https://twitter.com/spyrothon"><i class="fab fa-twitter"></i></a>
+        <a class="navbar-item" href="https://twitch.tv/spyrothon" target="_blank" rel="noopener"><i class="fab fa-twitch"></i></a>
+        <a class="navbar-item" href="https://twitch.tv/spyrothon" target="_blank" rel="noopener"><i class="fab fa-discord"></i></a>
+        <a class="navbar-item" href="https://twitter.com/spyrothon" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
 
         <p class="navbar-item">About</p>
-        <a class="navbar-item" href="/submissions">Submissions</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <p class="navbar-link">Submissions</p>
+
+          <div class="navbar-dropdown is-boxed">
+            <a class="navbar-item" href="/submit">Submit</a>
+            <a class="navbar-item" href="/submissions">See all</a>
+          </div>
+        </div>
+
       </div>
 
       <div class="navbar-end">
