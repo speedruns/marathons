@@ -3,5 +3,21 @@
 {% block main %}
   <form action="/submissions/{{submission.id}}" method="POST">
     {% include "submissions/_form.html.j2" %}
+
+    <div class="field is-horizontal">
+      <div class="field-label">
+      </div>
+      <div class="field-body">
+        <div class="field is-grouped">
+          <div class="control is-expanded">
+            <input class="button is-primary" type="submit" value="Submit">
+          </div>
+
+          <div class="control">
+            <a class="button is-danger" data-confirm="true" href="/submissions/{{submission.id}}/delete">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </form>
 {% endblock %}

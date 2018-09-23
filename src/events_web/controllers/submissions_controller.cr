@@ -1,8 +1,15 @@
 class SubmissionsController < EventsWebController
   def index
-    submissions = Events.list_submissions(Query.preload([:account, :event, :category, :game])).map(&.to_h)
+    submissions = Events.list_submissions(Query.preload([:account, :event, :category, :game]))
+
+    current_user_id = @context.current_user?.try(&.id)
+    profile_submissions, all_submissions = submissions.partition do |s|
+      current_user_id.try(&.==(s.account_id))
+    end
+
     render("submissions/index.html.j2", {
-      "submissions" => submissions
+      "all_submissions" => all_submissions.map(&.to_h),
+      "profile_submissions" => profile_submissions.map(&.to_h)
     })
   end
 
@@ -58,5 +65,9 @@ class SubmissionsController < EventsWebController
   end
 
   def delete
+    submission_id = request.path_params["submission_id"]
+
+    Events.delete_submission(submission_id)
+    redirect_to(submissions_path)
   end
 end

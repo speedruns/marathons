@@ -21,7 +21,9 @@ router EventsWebRouter do
     resources :submissions, only: [:index, :show]
 
     use AuthenticationHandler
-    resources :submissions, except: [:index, :show]
+    resources :submissions, except: [:index, :show] do
+      get "/delete", controller: SubmissionsController, action: delete
+    end
     get "/submit", controller: SubmissionsController, action: new
   end
 

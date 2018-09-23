@@ -60,4 +60,8 @@ module Events
     changeset = submission.cast(changes)
     Repo.update(changeset)
   end
+
+  def delete_submission(submission_id)
+    Repo.delete_all(Submission, Query.where(id: submission_id))
+  end
 end

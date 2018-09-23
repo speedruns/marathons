@@ -3,5 +3,17 @@
 {% block main %}
   <form action="/submissions" method="POST">
     {% include "submissions/_form.html.j2" %}
+
+    <div class="field is-horizontal">
+      <div class="field-label">
+      </div>
+      <div class="field-body">
+        <div class="field is-grouped">
+          <div class="control">
+            <input class="button is-primary" type="submit" value="Submit">
+          </div>
+        </div>
+      </div>
+    </div>
   </form>
 {% endblock %}

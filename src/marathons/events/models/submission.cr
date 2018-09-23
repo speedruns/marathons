@@ -11,7 +11,7 @@ module Events
       field :pb, String
 
       field :submitted_at, Time
-      field :status, String, default: "draft"
+      field :status, String, default: "pending"
 
       belongs_to :category, Inventory::Category
       belongs_to :game, Inventory::Game

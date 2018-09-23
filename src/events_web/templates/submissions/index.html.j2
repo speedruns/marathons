@@ -19,35 +19,66 @@
     </thead>
 
     <tbody>
-      {% for submission in submissions %}
+      {% if profile_submissions|length > 0 %}
         <tr>
-          <td>
-            {{ submission.account.name }}
-            <br>
-            {% if submission.account.twitch %}
-              <a href="https://twitch.tv/{{submission.account.twitch}}"><i class="fab fa-twitch"></i></a>
-            {% endif %}
-            {% if submission.account.twitter %}
-              <a href="https://twitter.com/{{submission.account.twitter}}"><i class="fab fa-twitter"></i></a>
-            {% endif %}
-          </td>
-
-          <td>
-            <a href="/games/{{submission.game_id}}">{{ submission.game.name }}</a>
-            &ndash;
-            <a href="/categories/{{submission.category_id}}">{{ submission.category.name }}</a>
-          </td>
-
-          <td>
-            <strong>{{ submission.estimate }}</strong>
-            <br>
-            {{submission.pb}}
-          </td>
-
-          <td>{{ submission.description }}</td>
-          <td>{{ submission.video_link|urlize(nofollow=true) }}</td>
+          <th class="title is-6" colspan="10">Your Submissions</th>
         </tr>
-      {% endfor %}
+        {% for submission in profile_submissions %}
+          <tr>
+            <td class="has-text-centered">
+              <a href="/submissions/{{submission.id}}/edit"><i class="fa fa-edit"></i></a>
+            </td>
+
+            <td>
+              <a href="/games/{{submission.game_id}}">{{ submission.game.name }}</a>
+              &ndash;
+              <a href="/categories/{{submission.category_id}}">{{ submission.category.name }}</a>
+            </td>
+
+            <td>
+              <strong>{{ submission.estimate }}</strong>
+              <br>
+              {{submission.pb}}
+            </td>
+
+            <td>{{ submission.description }}</td>
+            <td>{{ submission.video_link|urlize(nofollow=true) }}</td>
+          </tr>
+        {% endfor %}
+      {% endif %}
+
+      <tr>
+        <th class="title is-6" colspan="10">All Submissions</th>
+      </tr>
+        {% for submission in all_submissions %}
+          <tr>
+            <td>
+              {{ submission.account.name }}
+              <br>
+              {% if submission.account.twitch %}
+                <a href="https://twitch.tv/{{submission.account.twitch}}"><i class="fab fa-twitch"></i></a>
+              {% endif %}
+              {% if submission.account.twitter %}
+                <a href="https://twitter.com/{{submission.account.twitter}}"><i class="fab fa-twitter"></i></a>
+              {% endif %}
+            </td>
+
+            <td>
+              <a href="/games/{{submission.game_id}}">{{ submission.game.name }}</a>
+              &ndash;
+              <a href="/categories/{{submission.category_id}}">{{ submission.category.name }}</a>
+            </td>
+
+            <td>
+              <strong>{{ submission.estimate }}</strong>
+              <br>
+              {{submission.pb}}
+            </td>
+
+            <td>{{ submission.description }}</td>
+            <td>{{ submission.video_link|urlize(nofollow=true) }}</td>
+          </tr>
+        {% endfor %}
     </tbody>
   </table>
 {% endblock %}
