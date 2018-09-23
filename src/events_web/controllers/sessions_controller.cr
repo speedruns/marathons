@@ -2,7 +2,7 @@ class SessionsController < EventsWebController
   def new
     user = Accounts.new_user().to_h
     redirect = request.query_params["redirect"]?
-    Template.render(@context, "sessions/new.html.j2", {
+    render("sessions/new.html.j2", {
       "user" => user,
       "redirect" => redirect
     })
@@ -14,7 +14,7 @@ class SessionsController < EventsWebController
     user = Accounts.list_users(Query.where(name: params["username"]).limit(1)).first?
 
     unless user
-      Template.render(@context, "sessions/new.html.j2", {
+      render("sessions/new.html.j2", {
         "user" => Accounts.new_user().to_h,
         "redirect" => redirect
       })
@@ -31,7 +31,7 @@ class SessionsController < EventsWebController
       )
       redirect_to(redirect || root_path)
     else
-      Template.render(@context, "sessions/new.html.j2", {
+      render("sessions/new.html.j2", {
         "user" => user.to_h,
         "redirect" => redirect
       })

@@ -6,6 +6,30 @@
   {% else %}
     <form action="/login" method="POST">
   {% endif %}
+    <div class="field is-horizontal">
+      <div class="field-label">
+      </div>
+
+      <div class="field-body">
+        <p>
+          Don't have an account?
+          <a href="/profile/new">Create one now!</a>
+        </p>
+      </div>
+    </div>
+
     {% include "sessions/_form.html.j2" %}
+
+    <div class="field is-horizontal">
+      <div class="field-label">
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control is-expanded">
+            <input class="button is-primary" type="submit" value="Submit">
+          </div>
+        </div>
+      </div>
+    </div>
   </form>
 {% endblock %}

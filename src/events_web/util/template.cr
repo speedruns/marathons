@@ -6,7 +6,7 @@ module Template
   TEMPLATE_DIR = File.join(__DIR__, "..", "templates")
   ENGINE = Crinja.new(loader: Crinja::Loader::FileSystemLoader.new(TEMPLATE_DIR))
 
-  def render(conn, template, locals={} of String => String)
+  def render(conn : HTTP::Server::Context, template, locals={} of String => String)
     locals = locals.merge({
       "conn" => conn_to_h(conn)
     })

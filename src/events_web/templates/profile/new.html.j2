@@ -1,0 +1,23 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <h1 class="title">Create an account</h1>
+  <form action="/profile/create" method="POST">
+    {% include "profile/_form.html.j2" %}
+
+    <div class="field is-horizontal">
+      <div class="field-label">
+      </div>
+      <div class="field-body">
+        <div class="field is-grouped">
+          <div class="control">
+            <input type="submit" value="Submit" class="button is-primary">
+          </div>
+          <div class="control">
+            <a href="/" class="button is-text">Cancel</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+{% endblock %}

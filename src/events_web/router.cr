@@ -27,9 +27,12 @@ router EventsWebRouter do
 
   ## Profiles
   scope "profile" do
+    get   "/new", controller: ProfileController, action: new, helper: "new_profile"
+    post  "/create", controller: ProfileController, action: create
+
     use AuthenticationHandler
     get   "/", controller: ProfileController, action: show, helper: "profile"
-    get   "/edit", controller: ProfileController, action: edit
+    get   "/edit", controller: ProfileController, action: edit, helper: "edit_profile"
     post  "/", controller: ProfileController, action: update
   end
 

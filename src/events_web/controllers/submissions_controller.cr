@@ -1,7 +1,7 @@
 class SubmissionsController < EventsWebController
   def index
     submissions = Events.list_submissions(Query.preload([:account, :event, :category, :game])).map(&.to_h)
-    Template.render(@context, "submissions/index.html.j2", {
+    render("submissions/index.html.j2", {
       "submissions" => submissions
     })
   end
@@ -10,7 +10,7 @@ class SubmissionsController < EventsWebController
     submission = Events.new_submission()
     games = Inventory.list_games().map(&.to_h)
     categories = Inventory.list_categories().map(&.to_h)
-    Template.render(@context, "submissions/new.html.j2", {
+    render("submissions/new.html.j2", {
       "submission" => submission.to_h,
       "games" => games,
       "categories" => categories
@@ -36,7 +36,7 @@ class SubmissionsController < EventsWebController
     if submission = Events.get_submission(submission_id)
       games = Inventory.list_games().map(&.to_h)
       categories = Inventory.list_categories().map(&.to_h)
-      Template.render(@context, "submissions/edit.html.j2", {
+      render("submissions/edit.html.j2", {
         "submission" => submission.to_h,
         "games" => games,
         "categories" => categories
