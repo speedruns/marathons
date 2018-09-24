@@ -29,44 +29,7 @@
   <div class="field-body">
     <div class="field">
       <div class="control is-expanded">
-        <div class="select is-fullwidth">
-          <select name="category_id">
-            {% for category in categories %}
-              <option
-                value="{{category.id}}"
-                {% if category.id == submission.category_id %}
-                  selected
-                {% endif %}
-              >{{category.name}}</option>
-            {% endfor %}
-          </select>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="field is-horizontal">
-  <div class="field-label is-normal">
-    <label class="label" for="description">Description</label>
-  </div>
-  <div class="field-body">
-    <div class="field">
-      <div class="control is-expanded">
-        <textarea class="textarea" name="description" placeholder="This run features...">{{submission.description}}</textarea>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="field is-horizontal">
-  <div class="field-label is-normal">
-    <label class="label" for="video_link">Video Link</label>
-  </div>
-  <div class="field-body">
-    <div class="field">
-      <div class="control is-expanded">
-        <input class="input" type="text" name="video_link" value="{{submission.video_link}}" placeholder="https://www.youtube.com/watch?v=MAXvS5nfBJo">
+        <input class="input" type="text" name="category_name" required value="{{submission.category_name|d('')}}" placeholder="Any% race">
       </div>
     </div>
   </div>
@@ -79,7 +42,7 @@
   <div class="field-body">
     <div class="field">
       <div class="control is-expanded">
-        <input class="input" type="text" name="estimate" value="{{submission.estimate}}" placeholder="00:00:00">
+        <input class="input" type="text" name="estimate" required value="{{submission.estimate}}" placeholder="00:00:00">
       </div>
     </div>
   </div>
@@ -93,6 +56,33 @@
     <div class="field">
       <div class="control is-expanded">
         <input class="input" type="text" name="pb" value="{{submission.pb}}" placeholder="00:00:00">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="video_link">Video Link</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control is-expanded">
+        <input class="input" type="text" name="video_link" value="{{submission.video_link|d('')}}" placeholder="pb vod, marathon run, etc. (optional)">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="description">Comments</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control is-expanded">
+        <textarea class="textarea" name="description" placeholder="Do you want to race with someone? Anything else we should know?&#10;Comments are not publicly visible.">{{submission.description|d('')}}</textarea>
       </div>
     </div>
   </div>

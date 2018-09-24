@@ -13,8 +13,14 @@ module Events
       field :submitted_at, Time
       field :status, String, default: "pending"
 
-      belongs_to :category, Inventory::Category
       belongs_to :game, Inventory::Game
+      belongs_to :category, Inventory::Category
+
+      # There's a non-negligible chance that submitted categories won't
+      # already exist in the system. In this case, users can submit a raw
+      # category and/or game name in their place.
+      field :game_name, String
+      field :category_name, String
     end
 
     validate_inclusion :status, in: ["draft", "pending", "acccepted", "rejected"]
@@ -34,8 +40,10 @@ module Events
         "account" => account?.try(&.to_h),
         "category_id" => category_id,
         "category" => category?.try(&.to_h),
+        "category_name" => category_name,
         "game_id" => game_id,
-        "game" => game?.try(&.to_h)
+        "game" => game?.try(&.to_h),
+        "game_name" => game_name
       }
     end
 
