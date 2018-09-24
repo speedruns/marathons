@@ -47,6 +47,7 @@
         {% endfor %}
       {% endif %}
 
+
       <tr>
         <th class="title is-6" colspan="10">All Submissions</th>
       </tr>
@@ -56,10 +57,10 @@
               {{ submission.account.name }}
               <br>
               {% if submission.account.twitch %}
-                <a href="https://twitch.tv/{{submission.account.twitch}}"><i class="fab fa-twitch"></i></a>
+                <a href="https://twitch.tv/{{submission.account.twitch}}"><i class="fab fa-twitch fa-fw"></i></a>
               {% endif %}
               {% if submission.account.twitter %}
-                <a href="https://twitter.com/{{submission.account.twitter}}"><i class="fab fa-twitter"></i></a>
+                <a href="https://twitter.com/{{submission.account.twitter}}"><i class="fab fa-twitter fa-fw"></i></a>
               {% endif %}
             </td>
 

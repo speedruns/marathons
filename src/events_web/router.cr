@@ -24,6 +24,7 @@ router EventsWebRouter do
     resources :submissions, except: [:index, :show] do
       get "/delete", controller: SubmissionsController, action: delete
     end
+    post "/submissions/:submission_id", controller: SubmissionsController, action: update
     get "/submit", controller: SubmissionsController, action: new
   end
 
