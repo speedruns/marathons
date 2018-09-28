@@ -1,6 +1,6 @@
 class SubmissionsController < EventsWebController
   def index
-    submissions = Events.list_submissions(Query.preload([:account, :event, :category, :game]))
+    submissions = Events.list_submissions(Query.preload([:account, :event, :game]))
 
     current_user_id = @context.current_user?.try(&.id)
     profile_submissions, all_submissions = submissions.partition do |s|

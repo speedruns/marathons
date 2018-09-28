@@ -13,7 +13,6 @@
         <th>Runner</th>
         <th>Game / Category</th>
         <th>Estimate / PB</th>
-        <th>Description</th>
         <th>Video</th>
       </tr>
     </thead>
@@ -41,7 +40,6 @@
               {{submission.pb}}
             </td>
 
-            <td>{{ submission.description }}</td>
             <td>{{ submission.video_link|urlize(nofollow=true) }}</td>
           </tr>
         {% endfor %}
@@ -76,7 +74,6 @@
               {{submission.pb}}
             </td>
 
-            <td>{{ submission.description }}</td>
             <td>{{ submission.video_link|urlize(nofollow=true) }}</td>
           </tr>
         {% endfor %}
