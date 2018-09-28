@@ -1,13 +1,15 @@
 require "pg"
 require "crecto"
+require "dotenv"
+
+Dotenv.load
 
 module Repo
   extend Crecto::Repo
 
   config do |conf|
     conf.adapter = Crecto::Adapters::Postgres
-    conf.hostname = "localhost"
-    conf.database = "marathons"
+    conf.uri = ENV["DATABASE_URL"]
   end
 end
 
