@@ -6,6 +6,11 @@ module Events
       field :end_date, String
       field :subdomain, String
 
+      field :site_title, String
+      field :twitter, String
+      field :twitch, String
+      field :discord, String
+
       belongs_to :organization, Accounts::Organization
     end
 
@@ -18,6 +23,10 @@ module Events
         "name" => name,
         "start_date" => start_date,
         "end_date" => end_date,
+        "site_title" => site_title,
+        "twitter" => twitter,
+        "twitch" => twitch,
+        "discord" => discord,
         "subdomain" => subdomain,
         "organization_id" => organization_id,
         "organization" => organization?.try(&.to_h)

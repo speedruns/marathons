@@ -38,3 +38,42 @@
     </div>
   </div>
 </div>
+
+
+<div class="field">
+  <label class="label" for="site_title">Site Title</label>
+  <div class="control is-expanded">
+    <input class="input" type="text" name="site_title" placeholder="The Event" value="{{event.site_title|d('')}}">
+  </div>
+</div>
+
+
+<div class="field">
+  <label class="label" for="discord">Discord</label>
+  <div class="control has-icons-left is-expanded">
+    <input class="input" type="text" name="discord" placeholder="https://discord.gg/aserverinvite" value="{{event.discord|d('')}}">
+    <span class="icon is-small is-left">
+      <i class="fab fa-discord"></i>
+    </span>
+  </div>
+</div>
+
+<div class="field">
+  <label class="label" for="twitter">Twitter</label>
+  <div class="control has-icons-left is-expanded">
+    <input class="input" type="text" name="twitter" placeholder="https://twitter.com/theevent" value="{{event.twitter|d('')}}">
+    <span class="icon is-small is-left">
+      <i class="fas fa-at"></i>
+    </span>
+  </div>
+</div>
+
+<div class="field">
+  <label class="label" for="twitch">Twitch</label>
+  <div class="control has-icons-left is-expanded">
+    <input class="input" type="text" name="twitch" placeholder="https://twitch.tv/the_event" value="{{event.twitch|d('')}}">
+    <span class="icon is-small is-left">
+      <i class="fab fa-twitch"></i>
+    </span>
+  </div>
+</div>

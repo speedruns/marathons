@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="/css/bulma.min.css">
     <link rel="stylesheet" href="/assets/css/custom.css">
 
+    <title>{{conn.event.site_title|d(conn.event.name)}}</title>
+
     <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
   </head>
 
@@ -14,7 +16,7 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            Spyrothon 4
+            {{conn.event.name}}
           </h1>
           <h2 class="subtitle">
             November 17th-18th 2018

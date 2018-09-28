@@ -1,7 +1,7 @@
 <nav class="navbar has-shadow">
   <div class="container">
     <div class="navbar-brand">
-      <a class="navbar-item has-text-weight-bold" href="/">Spyrothon</a>
+      <a class="navbar-item has-text-weight-bold" href="/">{{conn.event.name}}</a>
       <a role="button" class="navbar-burger">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -11,9 +11,9 @@
 
     <div class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item" href="https://twitch.tv/spyrothon" target="_blank" rel="noopener"><i class="fab fa-twitch"></i></a>
-        <a class="navbar-item" href="https://discord.gg/fCvfnfk" target="_blank" rel="noopener"><i class="fab fa-discord"></i></a>
-        <a class="navbar-item" href="https://twitter.com/spyrothon" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+        <a class="navbar-item" href="{{conn.event.twitch}}" target="_blank" rel="noopener"><i class="fab fa-twitch"></i></a>
+        <a class="navbar-item" href="{{conn.event.discord}}" target="_blank" rel="noopener"><i class="fab fa-discord"></i></a>
+        <a class="navbar-item" href="{{conn.event.twitter}}" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
 
         <div class="navbar-item has-dropdown is-hoverable">
           <p class="navbar-link">Submissions</p>

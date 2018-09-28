@@ -17,7 +17,8 @@ module Template
   private def conn_to_h(conn)
     {
       "user" => conn.current_user? ? conn.current_user.to_h : nil,
-      "session" => conn.session? ? conn.session.to_h : nil
+      "session" => conn.session? ? conn.session.to_h : nil,
+      "event" => conn.event? ? conn.event.to_h : nil
     }
   end
 end
