@@ -12,7 +12,7 @@ module Events
   end
 
   def get_event(event_id, query : Query = Query.new)
-    Repo.get(Event, event_id, query)
+    Repo.all(Event, query.where(id: event_id).limit(1)).first?
   end
 
   def new_event()
@@ -44,7 +44,7 @@ module Events
   end
 
   def get_submission(submission_id, query : Query = Query.new)
-    Repo.get(Submission, submission_id, query)
+    Repo.all(Submission, query.where(id: submission_id).limit(1)).first?
   end
 
   def new_submission()
@@ -63,5 +63,9 @@ module Events
 
   def delete_submission(submission_id)
     Repo.delete_all(Submission, Query.where(id: submission_id))
+  end
+
+  def submitted_by(account_id, query = Query.new) : Query
+    query.where(account_id: account_id)
   end
 end

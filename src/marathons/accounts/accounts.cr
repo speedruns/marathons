@@ -12,7 +12,7 @@ module Accounts
   end
 
   def get_user(user_id, query : Query = Query.new)
-    Repo.get(User, user_id, query)
+    Repo.all(User, query.where(id: user_id).limit(1)).first?
   end
 
   def get_user_for_session(session : Session)
@@ -51,7 +51,7 @@ module Accounts
   end
 
   def get_organization(org_id, query : Query = Query.new)
-    Repo.get(Organization, org_id, query)
+    Repo.all(Organization, query.where(id: org_id).limit(1)).first?
   end
 
   def new_organization()

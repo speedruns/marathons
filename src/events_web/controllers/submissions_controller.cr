@@ -40,7 +40,7 @@ class SubmissionsController < EventsWebController
 
   def edit
     submission_id = request.path_params["submission_id"]
-    if submission = Events.get_submission(submission_id)
+    if submission = Events.get_submission(submission_id, Events.submitted_by(@context.current_user.id))
       games = Inventory.list_games().map(&.to_h)
       categories = Inventory.list_categories().map(&.to_h)
       render("submissions/edit.html.j2", {
@@ -66,8 +66,11 @@ class SubmissionsController < EventsWebController
 
   def delete
     submission_id = request.path_params["submission_id"]
+    submission = Events.get_submission(submission_id, Events.submitted_by(@context.current_user.id))
+    if submission
+      Events.delete_submission(submission_id)
+    end
 
-    Events.delete_submission(submission_id)
     redirect_to(submissions_path)
   end
 end

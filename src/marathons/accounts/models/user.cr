@@ -37,7 +37,7 @@ module Accounts
         "discord" => discord,
         "twitch" => twitch,
         "twitter" => twitter,
-        "timezone" => twitter,
+        "timezone" => timezone,
         "avatar_object_id" => avatar_object_id,
         "admin" => admin
       }

@@ -12,7 +12,7 @@ module Inventory
   end
 
   def get_series(series_id, query : Query = Query.new)
-    Repo.get(Series, series_id, query)
+    Repo.all(Series, query.where(id: series_id).limit(1)).first?
   end
 
   def new_series()
@@ -39,7 +39,7 @@ module Inventory
   end
 
   def get_game(game_id, query : Query = Query.new)
-    Repo.get(Game, game_id, query)
+    Repo.all(Game, query.where(id: game_id).limit(1)).first?
   end
 
   def new_game()
@@ -66,7 +66,7 @@ module Inventory
   end
 
   def get_category(category_id, query : Query = Query.new)
-    Repo.get(Category, category_id, query)
+    Repo.all(Category, query.where(id: category_id).limit(1)).first?
   end
 
   def new_category()
