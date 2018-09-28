@@ -4,13 +4,17 @@ module UsersController
   def index(env)
     users = Accounts.list_users()
     users = users.map(&.to_h)
-    Template.render(env, "accounts/users/index.html.j2", users: users)
+    Template.render(env, "accounts/users/index.html.j2", {
+      "users" => users
+    })
   end
 
   def show(env)
     user_id = env.params.url["user_id"]
     if user = Accounts.get_user(user_id)
-      Template.render(env, "accounts/users/show.html.j2", user: user.to_h)
+      Template.render(env, "accounts/users/show.html.j2", {
+        "user" => user.to_h
+      })
     else
       env.redirect("/users")
     end
@@ -18,7 +22,9 @@ module UsersController
 
   def _new(env)
     user = Accounts.new_user()
-    Template.render(env, "accounts/users/new.html.j2", user: user.to_h)
+    Template.render(env, "accounts/users/new.html.j2", {
+      "user" => user.to_h
+    })
   end
 
   def create(env)
@@ -29,7 +35,9 @@ module UsersController
   def edit(env)
     user_id = env.params.url["user_id"]
     if user = Accounts.get_user(user_id)
-      Template.render(env, "accounts/users/edit.html.j2", user: user.to_h)
+      Template.render(env, "accounts/users/edit.html.j2", {
+        "user" => user.to_h
+      })
     else
       env.redirect("/users")
     end

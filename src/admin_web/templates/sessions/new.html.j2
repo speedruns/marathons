@@ -1,0 +1,24 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  {% if redirect %}
+    <form action="/login?redirect={{redirect}}" method="POST">
+  {% else %}
+    <form action="/login" method="POST">
+  {% endif %}
+
+    {% include "sessions/_form.html.j2" %}
+
+    <div class="field is-horizontal">
+      <div class="field-label">
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control is-expanded">
+            <input class="button is-primary" type="submit" value="Submit">
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+{% endblock %}

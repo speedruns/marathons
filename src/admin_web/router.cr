@@ -24,3 +24,12 @@ crud :events, "event", EventsController
 crud :series, "series", SeriesController
 crud :games, "game", GamesController
 crud :categories, "category", CategoriesController
+
+
+###
+# Sessions
+###
+
+get   "/login", &->SessionsController._new(E)
+post  "/login", &->SessionsController.create(E)
+get   "/logout", &->SessionsController.delete(E)

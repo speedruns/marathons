@@ -18,6 +18,24 @@
         <a class="navbar-item" href="/games">Games</a>
         <a class="navbar-item" href="/categories">Categories</a>
       </div>
+
+      <div class="navbar-end">
+        {% if conn.session %}
+          <div class="navbar-item has-dropdown is-hoverable">
+            <p class="navbar-link">
+              {{conn.user.name}}
+            </p>
+
+            <div class="navbar-dropdown is-boxed">
+              <a class="navbar-item" href="/profile/edit">Edit Account</a>
+              <a class="navbar-item" href="/logout">Logout</a>
+            </div>
+          </div>
+        {% else %}
+          <a class="navbar-item" href="/login">Login</a>
+          <a class="navbar-item" href="/profile/new">Signup</a>
+        {% endif %}
+      </div>
     </div>
   </div>
 
