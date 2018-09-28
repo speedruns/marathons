@@ -21,7 +21,9 @@ class EventContextHandler
   end
 
   private def resolve_event_context(conn)
-    host = conn.request.host.not_nil!
+    host = conn.request.host
+    return unless host
+
     if idx = host.rindex('.')
       subdomain = host[0...idx]
       Events.get_event_for_subdomain(subdomain)
