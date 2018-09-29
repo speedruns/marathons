@@ -33,6 +33,10 @@ module Events
     Repo.get_by(Event, subdomain: subdomain)
   end
 
+  def accepting_submissions?(event : Event)
+    event.state == "accepting_submissions"
+  end
+
 
 
   ###

@@ -4,7 +4,7 @@ class EventsWebController
 
   def redirect_to(location, status : Int32 = 301)
     response.headers.add "Location", location
-    response.status_code = 301
+    response.status_code = status
   end
 
   def render(template, locals={} of String => String)

@@ -3,9 +3,11 @@
 {% block main %}
   <h1 class="title">Submissions</h1>
 
-  <div class="field">
-    <a class="button is-primary" href="/submit">Submit a Run</a>
-  </div>
+  {% if conn.event.state == "accepting_submissions" %}
+    <div class="field">
+      <a class="button is-primary" href="/submit">Submit a Run</a>
+    </div>
+  {% endif %}
 
   <table class="table is-fullwidth">
     <thead>
@@ -29,14 +31,14 @@
             </td>
 
             <td>
-              {{ submission.game.name }}
-              &ndash;
+              <strong>{{ submission.game.name }}</strong>
+              <br/>
               {{ submission.category_name }}
             </td>
 
             <td>
               <strong>{{ submission.estimate }}</strong>
-              <br>
+              <br/>
               {{submission.pb}}
             </td>
 
@@ -63,14 +65,14 @@
             </td>
 
             <td>
-              {{ submission.game.name }}
-              &ndash;
+              <strong>{{ submission.game.name }}</strong>
+              <br/>
               {{ submission.category_name }}
             </td>
 
             <td>
               <strong>{{ submission.estimate }}</strong>
-              <br>
+              <br/>
               {{submission.pb}}
             </td>
 

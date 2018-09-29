@@ -77,3 +77,22 @@
     </span>
   </div>
 </div>
+
+
+<div class="field">
+  <label class="label">State</label>
+  <div class="control">
+    <div class="select">
+      <select name="state">
+        {% for state in ['draft', 'accepting_submissions', 'closed'] %}
+          <option
+            value="{{state}}"
+            {% if state == event.state %}
+              selected
+            {% endif %}
+          >{{state}}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>

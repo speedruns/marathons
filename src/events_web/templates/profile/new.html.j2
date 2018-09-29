@@ -2,6 +2,13 @@
 
 {% block main %}
   <h1 class="title">Create an account</h1>
+  <p>
+    If you created an account for
+    <a href="https://fifteenfortyfive.org" target="_blank" rel="noopener">The 1545</a>,
+    you can use that account to log in here instead of making a new account.
+  </p>
+  <br/>
+
   <form action="/profile/create" method="POST">
     {% include "profile/_form.html.j2" %}
 

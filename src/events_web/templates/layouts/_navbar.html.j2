@@ -19,7 +19,9 @@
           <p class="navbar-link">Submissions</p>
 
           <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item" href="/submit">Submit a Run</a>
+            {% if conn.event.state == "accepting_submissions" %}
+              <a class="navbar-item" href="/submit">Submit a Run</a>
+            {% endif %}
             <a class="navbar-item" href="/submissions">See All</a>
           </div>
         </div>

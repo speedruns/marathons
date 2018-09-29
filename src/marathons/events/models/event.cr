@@ -11,6 +11,8 @@ module Events
       field :twitch, String
       field :discord, String
 
+      field :state, String, default: "draft"
+
       belongs_to :organization, Accounts::Organization
     end
 
@@ -27,6 +29,7 @@ module Events
         "twitter" => twitter,
         "twitch" => twitch,
         "discord" => discord,
+        "state" => state,
         "subdomain" => subdomain,
         "organization_id" => organization_id,
         "organization" => organization?.try(&.to_h)

@@ -1,6 +1,13 @@
 {% extends "layouts/main.html.j2" %}
 
 {% block main %}
+  <h3 class="title is-4">Important Submission Info</h3>
+  <p>Submit all runs individually. You may submit as many runs as you want. Submitting a run is not a guarantee that you will be on stream for the event. We want to accomodate as many people as possible, but scheduling, other submissions, and to an extent skill level will all go into deciding what ends up being shown in the event.</p>
+  <br/>
+  <p>For races, all participants must make a submission for the run. Indicate in the Comments who you would like to race with. We can handle up to 4-way races. Races with more than 2 runners will require external commentary. For relays, submit like a normal race, but indicate that you would like the run to be a relay in the Comments. If you are running multiple games in a relay, make separate submissions for each.</p>
+  <br/>
+  <p>We are considering featuring Reignited Trilogy gameplay at some point in the event. Exact details will not be known until after the game has been released (November 13th). If you would like to be involved in whatever showcase of the game there is, make a single submission for the Reignited Trilogy and describe what you are interested in running in the Comments.</p>
+  <br/>
   <form action="/submissions" method="POST">
     {% include "submissions/_form.html.j2" %}
 

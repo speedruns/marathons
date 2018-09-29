@@ -14,6 +14,7 @@ class SubmissionsController < EventsWebController
   end
 
   def new
+    require_accepting_submissions!
     submission = Events.new_submission()
     games = Inventory.list_games().map(&.to_h)
     categories = Inventory.list_categories().map(&.to_h)
@@ -28,6 +29,7 @@ class SubmissionsController < EventsWebController
   end
 
   def create
+    require_accepting_submissions!
     params = HTTP::Params.parse(request.body.not_nil!.gets_to_end).to_h
     params = params.merge({
       "event_id" => context.event.id.to_s,
@@ -72,5 +74,15 @@ class SubmissionsController < EventsWebController
     end
 
     redirect_to(submissions_path)
+  end
+
+
+  macro require_accepting_submissions!
+    unless Events.accepting_submissions?(@context.event)
+      # Usea 302 to avoid potential caching issues (301 is a _permanent_
+      # redirect and browsers will cache that indefinitely. 302 is _temporary_,
+      # so at worst the caching problem will only last a short while).
+      redirect_to(root_path, status: 302)
+    end
   end
 end
