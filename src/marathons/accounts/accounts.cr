@@ -24,7 +24,9 @@ module Accounts
   end
 
   def create_user(attrs)
-    user = User.new.cast(attrs)
+    user = User.new
+    user.admin = false
+    user = user.cast(attrs)
     Repo.insert(user)
   end
 

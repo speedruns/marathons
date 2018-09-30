@@ -13,6 +13,9 @@ module Accounts
 
       field :password, String, virtual: true
       field :encrypted_password, String
+
+      set_created_at_field nil
+      set_updated_at_field nil
     end
 
 
