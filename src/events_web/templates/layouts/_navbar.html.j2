@@ -2,6 +2,10 @@
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item has-text-weight-bold" href="/">{{conn.event.name}}</a>
+      <a class="navbar-item is-hidden-desktop" href="{{conn.event.twitch}}" target="_blank" rel="noopener"><i class="fab fa-twitch"></i></a>
+      <a class="navbar-item is-hidden-desktop" href="{{conn.event.discord}}" target="_blank" rel="noopener"><i class="fab fa-discord"></i></a>
+      <a class="navbar-item is-hidden-desktop" href="{{conn.event.twitter}}" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+
       <a role="button" class="navbar-burger">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -11,9 +15,9 @@
 
     <div class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item" href="{{conn.event.twitch}}" target="_blank" rel="noopener"><i class="fab fa-twitch"></i></a>
-        <a class="navbar-item" href="{{conn.event.discord}}" target="_blank" rel="noopener"><i class="fab fa-discord"></i></a>
-        <a class="navbar-item" href="{{conn.event.twitter}}" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+        <a class="navbar-item is-hidden-touch is-hidden-desktop-only" href="{{conn.event.twitch}}" target="_blank" rel="noopener"><i class="fab fa-twitch"></i></a>
+        <a class="navbar-item is-hidden-touch is-hidden-desktop-only" href="{{conn.event.discord}}" target="_blank" rel="noopener"><i class="fab fa-discord"></i></a>
+        <a class="navbar-item is-hidden-touch is-hidden-desktop-only" href="{{conn.event.twitter}}" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
 
         <div class="navbar-item has-dropdown is-hoverable">
           <p class="navbar-link">Submissions</p>
@@ -46,4 +50,14 @@
       </div>
     </div>
   </div>
+
+
+  <script type="text/javascript">
+    const burger = document.querySelector('.navbar .navbar-burger');
+    const menu = document.querySelector('.navbar .navbar-menu');
+    burger.addEventListener('click', function(evt) {
+      burger.classList.toggle('is-active');
+      menu.classList.toggle('is-active');
+    })
+  </script>
 </nav>
