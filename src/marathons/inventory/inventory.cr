@@ -29,6 +29,10 @@ module Inventory
     Repo.update(changeset)
   end
 
+  def delete_series(series : Series)
+    Repo.delete(series)
+  end
+
 
   ###
   # Games
@@ -56,6 +60,10 @@ module Inventory
     Repo.update(changeset)
   end
 
+  def delete_game(game : Game)
+    Repo.delete(game)
+  end
+
 
   ###
   # Categories
@@ -81,5 +89,9 @@ module Inventory
   def update_category(category : Category, changes)
     changeset = category.cast(changes)
     Repo.update(changeset)
+  end
+
+  def delete_category(category : Category)
+    Repo.delete(category)
   end
 end

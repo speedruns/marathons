@@ -14,6 +14,8 @@ module Events
       field :state, String, default: "draft"
 
       belongs_to :organization, Accounts::Organization
+      has_many :organizers, Organizer
+      has_many :organizer_users, Accounts::User, through: :organizers
     end
 
     validate_required :name

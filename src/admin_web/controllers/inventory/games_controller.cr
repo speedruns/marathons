@@ -56,4 +56,13 @@ module GamesController
 
     env.redirect("/games")
   end
+
+  def destroy(env)
+    game_id = env.params.url["game_id"]
+    if game = Inventory.get_game(game_id)
+      Inventory.delete_game(game)
+    end
+
+    env.redirect("/games")
+  end
 end

@@ -56,4 +56,13 @@ module OrganizationsController
 
     env.redirect("/organizations")
   end
+
+  def destroy(env)
+    org_id = env.params.url["org_id"]
+    if org = Accounts.get_organization(org_id)
+      Accounts.delete_organization(org)
+    end
+
+    env.redirect("/organizations")
+  end
 end

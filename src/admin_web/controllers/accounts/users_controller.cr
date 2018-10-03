@@ -51,4 +51,13 @@ module UsersController
 
     env.redirect("/users")
   end
+
+  def destroy(env)
+    user_id = env.params.url["user_id"]
+    if user = Accounts.get_user(user_id)
+      Accounts.delete_user(user)
+    end
+
+    env.redirect("/users")
+  end
 end

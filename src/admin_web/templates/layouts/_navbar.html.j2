@@ -9,14 +9,35 @@
       </a>
     </div>
 
-    <div class="navbar-menu">
+    <div class="navbar-menu has-dropdown">
       <div class="navbar-start">
-        <a class="navbar-item" href="/users">Users</a>
-        <a class="navbar-item" href="/organizations">Organizations</a>
-        <a class="navbar-item" href="/events">Events</a>
-        <a class="navbar-item" href="/series">Series</a>
-        <a class="navbar-item" href="/games">Games</a>
-        <a class="navbar-item" href="/categories">Categories</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <p class="navbar-link">Accounts</p>
+
+          <div class="navbar-dropdown is-boxed">
+            <a class="navbar-item" href="/users">Users</a>
+            <a class="navbar-item" href="/organizations">Organizations</a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <p class="navbar-link">Events</p>
+
+          <div class="navbar-dropdown is-boxed">
+            <a class="navbar-item" href="/events">Events</a>
+            <a class="navbar-item" href="/organizers">Organizers</a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <p class="navbar-link">Inventory</p>
+
+          <div class="navbar-dropdown is-boxed">
+            <a class="navbar-item" href="/series">Series</a>
+            <a class="navbar-item" href="/games">Games</a>
+            <a class="navbar-item" href="/categories">Categories</a>
+          </div>
+        </div>
       </div>
 
       <div class="navbar-end">

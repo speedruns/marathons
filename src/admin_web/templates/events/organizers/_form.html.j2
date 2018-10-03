@@ -1,0 +1,35 @@
+<div class="field">
+  <label class="label">User</label>
+  <div class="control">
+    <div class="select">
+      <select name="user_id">
+        {% for user in users %}
+          <option
+            value="{{user.id}}"
+            {% if user.id == organizer.user.id %}
+              selected
+            {% endif %}
+          >{{user.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Event</label>
+  <div class="control">
+    <div class="select">
+      <select name="event_id">
+        {% for event in events %}
+          <option
+            value="{{event.id}}"
+            {% if event.id == organizer.event.id %}
+              selected
+            {% endif %}
+          >{{event.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>

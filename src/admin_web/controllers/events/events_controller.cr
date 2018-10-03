@@ -56,4 +56,13 @@ module EventsController
 
     env.redirect("/events")
   end
+
+  def destroy(env)
+    event_id = env.params.url["event_id"]
+    if event = Events.get_event(event_id)
+      Events.delete_event(event)
+    end
+
+    env.redirect("/events")
+  end
 end

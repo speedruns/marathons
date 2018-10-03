@@ -52,4 +52,13 @@ module SeriesController
 
     env.redirect("/series")
   end
+
+  def destroy(env)
+    series_id = env.params.url["series_id"]
+    if series = Inventory.get_series(series_id)
+      Inventory.delete_series(series)
+    end
+
+    env.redirect("/series")
+  end
 end

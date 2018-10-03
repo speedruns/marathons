@@ -36,6 +36,10 @@ module Accounts
     Repo.update(changeset)
   end
 
+  def delete_user(user : User)
+    Repo.delete(user)
+  end
+
   private def validate_password_matches(changes)
     password = changes["password"]?
     confirm  = changes["password_confirm"]?
@@ -68,6 +72,10 @@ module Accounts
   def update_organization(org : Organization, changes)
     changeset = org.cast(changes)
     Repo.update(changeset)
+  end
+
+  def delete_organization(organization : Organization)
+    Repo.delete(organization)
   end
 
 

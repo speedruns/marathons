@@ -56,4 +56,13 @@ module CategoriesController
 
     env.redirect("/categories")
   end
+
+  def destroy(env)
+    category_id = env.params.url["category_id"]
+    if category = Inventory.get_category(category_id)
+      Inventory.delete_category(category)
+    end
+
+    env.redirect("/categories")
+  end
 end

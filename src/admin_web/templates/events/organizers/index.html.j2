@@ -1,0 +1,31 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <h1 class="title">Listing Organizers</h1>
+
+  <div class="field is-grouped">
+    <p class="control">
+      <a href="/organizers/new" class="button is-primary">New Organizer</a>
+    </p>
+  </div>
+
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Event</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for organizer in organizers %}
+        <tr>
+          <td><a href="/users/{{organizer.user.id}}">{{ organizer.user.name }}</a></td>
+          <td><a href="/events/{{organizer.event.id}}">{{ organizer.event.name }}</a></td>
+          <td><a href="/organizers/{{organizer.id}}/delete">delete</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
