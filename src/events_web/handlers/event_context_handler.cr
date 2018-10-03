@@ -17,7 +17,7 @@ class EventContextHandler
       return
     end
 
-    if user = conn.current_user
+    if user = conn.current_user?
       conn.current_user_is_organizer = Events.user_is_organizer?(evt, user.id)
     end
 
