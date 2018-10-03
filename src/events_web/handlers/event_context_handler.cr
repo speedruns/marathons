@@ -2,6 +2,7 @@ require "http"
 
 class HTTP::Server::Context
   property! event : Events::Event
+  property? current_user_is_organizer : Bool = false
 end
 
 class EventContextHandler
@@ -14,6 +15,10 @@ class EventContextHandler
         "resource" => conn.request.resource
       })
       return
+    end
+
+    if user = conn.current_user
+      conn.current_user_is_organizer = Events.user_is_organizer?(evt, user.id)
     end
 
     conn.event = evt

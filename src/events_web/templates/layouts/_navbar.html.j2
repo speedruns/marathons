@@ -35,6 +35,10 @@
         {% if conn.session %}
           <div class="navbar-item has-dropdown is-hoverable">
             <p class="navbar-link">
+              {% if conn.user_is_organizer %}
+                <i class="fas fa-wrench fa-fw" title="You are an organizer of this event"></i>
+                &nbsp;
+              {% endif %}
               {{conn.user.name}}
             </p>
 

@@ -77,6 +77,10 @@ module Events
     Repo.update(changeset)
   end
 
+  def user_is_organizer?(event : Event, user_id)
+    !!Repo.get_by(Organizer, event_id: event.id, user_id: user_id)
+  end
+
 
 
   ###

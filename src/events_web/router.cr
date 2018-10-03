@@ -7,8 +7,8 @@ router EventsWebRouter do
   end
 
   ## App Routes
-  use EventContextHandler
   use SessionHandler
+  use EventContextHandler
 
   # Custom app assets
   scope "assets" do
