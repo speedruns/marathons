@@ -12,7 +12,7 @@ class AuthenticationHandler
   def call(conn : HTTP::Server::Context)
     unless conn.current_user?
       conn.response.headers.add "Location", login_path(redirect: conn.request.path)
-      conn.response.status_code = 301
+      conn.response.status_code = 302
       return
     end
 

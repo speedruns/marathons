@@ -39,6 +39,17 @@ router EventsWebRouter do
     post  "/", controller: ProfileController, action: update
   end
 
+
+  ## Organizers
+  scope "organizer", helper_prefix: "organizer" do
+    use AuthenticationHandler
+    use AuthorizationHandler.new(required_level: :organizer)
+
+    # Submissions
+    get "/submissions", controller: Organizer::SubmissionsController, action: index, helper: "submissions"
+  end
+
+
   ## Sessions
   get   "/login", controller: SessionsController, action: new, helper: "login"
   post  "/login", controller: SessionsController, action: create

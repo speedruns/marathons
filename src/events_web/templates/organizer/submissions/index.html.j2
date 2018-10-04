@@ -1,0 +1,60 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <h1 class="title">Submissions</h1>
+
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Runner</th>
+        <th>Game / Category</th>
+        <th>Estimate / PB</th>
+        <th>Video</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th class="title is-6" colspan="10">All Submissions</th>
+      </tr>
+        {% for submission in submissions %}
+          <tr>
+            <td>
+              {{ submission.account.name }}
+              <br>
+              {% if submission.account.twitch %}
+                <a href="https://twitch.tv/{{submission.account.twitch}}"><i class="fab fa-twitch fa-fw"></i></a>
+              {% endif %}
+              {% if submission.account.twitter %}
+                <a href="https://twitter.com/{{submission.account.twitter}}"><i class="fab fa-twitter fa-fw"></i></a>
+              {% endif %}
+            </td>
+
+            <td>
+              <strong>{{ submission.game.name }}</strong>
+              <br/>
+              {{ submission.category_name }}
+            </td>
+
+            <td>
+              <strong>{{ submission.estimate }}</strong>
+              <br/>
+              {{submission.pb}}
+            </td>
+
+            <td>{{ submission.video_link|urlize(nofollow=true) }}</td>
+          </tr>
+
+          <tr>
+            <td colspan="4">
+              {% if submission.description | length > 0 %}
+                {{ submission.description }}
+              {% else %}
+                <i>No description given</i>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

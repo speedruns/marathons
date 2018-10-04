@@ -29,6 +29,16 @@
             <a class="navbar-item" href="/submissions">See All</a>
           </div>
         </div>
+
+        {% if conn.user_is_organizer %}
+          <div class="navbar-item has-dropdown is-hoverable">
+            <p class="navbar-link">Organizer</p>
+
+            <div class="navbar-dropdown is-boxed">
+              <a class="navbar-item" href="/organizer/submissions">Submissions</a>
+            </div>
+          </div>
+        {% endif %}
       </div>
 
       <div class="navbar-end">
