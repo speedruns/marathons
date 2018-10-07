@@ -47,6 +47,8 @@ router EventsWebRouter do
 
     # Submissions
     get "/submissions", controller: Organizer::SubmissionsController, action: index, helper: "submissions"
+
+    resources :schedules, controller: Organizer::SchedulesController
   end
 
 

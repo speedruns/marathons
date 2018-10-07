@@ -1,0 +1,31 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <h1 class="title">Schedules</h1>
+
+  <div class="field">
+    <a class="button is-primary" href="/organizer/schedules/new">Create a Schedule</a>
+  </div>
+
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Run Count</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for schedule in schedules %}
+        <tr>
+          <td>{{ schedule.title }}</td>
+          <td>{{ schedule.start_time }}</td>
+          <td>{{ schedule.end_time }}</td>
+          <td>{{ schedule.runs | count }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

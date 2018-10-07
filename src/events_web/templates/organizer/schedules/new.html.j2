@@ -1,0 +1,32 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <div class="columns">
+    <div class="column is-two-fifths">
+      <h3 class="title is-4">Create a Schedule</h3>
+
+      <p>Drag submissions from the left to the timeline on the right to create a schedule. You can also re-order runs within the schedule.</p>
+
+      <p>While creating a schedule, try to keep in mind the runners' time zones and general availability. If you aren't sure about someone's availability, it's better to ask <i>before</i> finalizing your schedule to avoid rescheduling issues later on.</p>
+    </div>
+
+    <div class="column">
+      <form action="/organizer/schedules" method="POST">
+        {% include "submissions/_form.html.j2" %}
+
+        <div class="field is-horizontal">
+          <div class="field-label">
+          </div>
+          <div class="field-body">
+            <div class="field is-grouped">
+              <div class="control">
+                <input class="button is-primary" type="submit" value="Submit">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

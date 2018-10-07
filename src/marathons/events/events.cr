@@ -116,4 +116,68 @@ module Events
   def submitted_by(account_id, query = Query.new) : Query
     query.where(account_id: account_id)
   end
+
+
+
+  ###
+  # Schedules
+  ###
+
+  def list_schedules(query : Query = Query.new)
+    Repo.all(Schedule, query)
+  end
+
+  def get_schedule(schedule_id, query : Query = Query.new)
+    Repo.all(Schedule, query.where(id: schedule_id).limit(1)).first?
+  end
+
+  def new_schedule()
+    Schedule.new
+  end
+
+  def create_schedule(attrs)
+    schedule = Schedule.new.cast(attrs)
+    Repo.insert(schedule)
+  end
+
+  def update_schedule(schedule : Schedule, changes)
+    changeset = schedule.cast(changes)
+    Repo.update(changeset)
+  end
+
+  def delete_schedule(schedule_id)
+    Repo.delete_all(Schedule, Query.where(id: schedule_id))
+  end
+
+
+
+  ###
+  # Runs
+  ###
+
+  def list_runs(query : Query = Query.new)
+    Repo.all(Run, query)
+  end
+
+  def get_run(run_id, query : Query = Query.new)
+    Repo.all(Run, query.where(id: run_id).limit(1)).first?
+  end
+
+  def new_run()
+    Run.new
+  end
+
+  def create_run(attrs)
+    run = Run.new.cast(attrs)
+    Repo.insert(Run)
+  end
+
+  def update_run(run : Run, changes)
+    changeset = run.cast(changes)
+    Repo.update(changeset)
+  end
+
+  def delete_run(run_id)
+    Repo.delete_all(Run, Query.where(id: run_id))
+  end
 end
