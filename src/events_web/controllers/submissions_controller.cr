@@ -37,8 +37,8 @@ class SubmissionsController < EventsWebController
     require_accepting_submissions!
     params = HTTP::Params.parse(request.body.not_nil!.gets_to_end).to_h
     params = params.merge({
-      "event_id" => context.event.id.to_s,
-      "account_id" => context.current_user.id.to_s
+      "event_id" => context.event.id,
+      "account_id" => context.current_user.id
     })
 
     submission = Events.create_submission(params)

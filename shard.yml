@@ -19,7 +19,11 @@ targets:
 
 dependencies:
   crecto:
-    github: crecto/crecto
+    # github: crecto/crecto
+    # Using this until updated changesets and typecasting are
+    # supported by the official crecto
+    github: faultyserver/crecto
+    branch: temp/casts
   crinja:
     github: straight-shoota/crinja
   dotenv:

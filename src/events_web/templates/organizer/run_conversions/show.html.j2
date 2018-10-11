@@ -1,0 +1,73 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <h1 class="title">Convert Submission</h1>
+
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Runner</th>
+        <th>Game / Category</th>
+        <th>Estimate / PB</th>
+        <th>Video</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>
+          {{ submission.account.name }}
+        </td>
+
+        <td>
+          <strong>{{ submission.game.name }}</strong>
+          <br/>
+          {{ submission.category_name }}
+        </td>
+
+        <td>
+          <strong>{{ submission.estimate }}</strong>
+          <br/>
+          {{submission.pb}}
+        </td>
+
+        <td>{{ submission.video_link|urlize(nofollow=true) }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="content">
+    {% if not changeset.valid %}
+      <p>This run could not be converted because:</p>
+      <ul>
+        {% for field, message in changeset.errors %}
+          <li><strong>{{field}}</strong> {{message}}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+
+
+  <div class="content">
+    <p>The form below is pre-filled with the content that was able to be automatically parsed from the Submission. Fill out the remaining forms, fixing any errors, and then submit the Run to save it. If there are no errors, just hit submit.</p>
+  </div>
+
+  <form class="form" method="POST" action="/organizer/runs/convert">
+    <input type="hidden" name="submission_id" value="{{submission.id}}">
+    <input type="hidden" name="runner_id" value="{{submission.account_id}}">
+
+    {% include "organizer/runs/_form.html.j2" %}
+
+    <div class="field is-horizontal">
+      <div class="field-label">
+      </div>
+      <div class="field-body">
+        <div class="field is-grouped">
+          <div class="control">
+            <input class="button is-primary" type="submit" value="Save Run">
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+{% endblock %}

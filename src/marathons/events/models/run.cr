@@ -1,3 +1,5 @@
+require "../../util/time.cr"
+
 module Events
   class Run < Crecto::Model
     schema "ev_runs" do
@@ -5,12 +7,13 @@ module Events
       belongs_to :runner, Accounts::User, foreign_key: :runner_id
       belongs_to :submission, Submission
 
+      field :description, String
       field :video_link, String
-      # TODO: Convert these to proper time representations
-      field :estimate, String
-      field :pb, String
+      # Times are all stored in milliseconds
+      field :estimate, Int64
+      field :pb, Int64
+      field :time, Int64
 
-      field :time, String
 
       # To allow for schedule drafting and backups, runs have a many-to-many
       # relationship with schedules.
@@ -24,14 +27,21 @@ module Events
       belongs_to :category, Inventory::Category
     end
 
+    validate_required :event_id
+    validate_required :runner_id
+    validate_required :game_id
+    validate_required :category_id
+    validate_required :estimate
+
 
     def to_h
       {
         "id" => id,
+        "description" => description,
         "video_link" => video_link,
-        "estimate" => format_time(estimate),
-        "pb" => format_time(pb),
-        "time" => format_time(time),
+        "estimate" => Util::TimeParse.format_time(estimate),
+        "pb" => Util::TimeParse.format_time(pb),
+        "time" => Util::TimeParse.format_time(time),
         "event_id" => event_id,
         "event" => event?.try(&.to_h),
         "runner_id" => runner_id,
@@ -41,39 +51,6 @@ module Events
         "game_id" => game_id,
         "game" => game?.try(&.to_h)
       }
-    end
-
-
-    private KNOWN_TIME_FORMATS = [
-      "%H:%M:%S.%3N",
-      "%H:%M:%S",
-      "%H:%M",
-      "%H.%M"
-    ]
-
-    private def to_milliseconds(time_string : String)
-      KNOWN_TIME_FORMATS.each do |format|
-        time = Time.parse!(time_string, format)
-
-        break time.hour * 3_600_000 +
-              time.minute * 60_000 +
-              time.second * 1000 +
-              time.millisecond
-      rescue
-        nil
-      end
-    end
-
-    private def format_time(time : Nil); ""; end
-    private def format_time(time : Time::Span)
-      "#{time.hours}:#{time.minutes}:#{time.seconds}.#{time.milliseconds}"
-    end
-    private def format_time(time : String)
-      if ms = to_milliseconds(time)
-        format_time(Time::Span.new(nanoseconds: ms * 1000))
-      else
-        time
-      end
     end
   end
 end

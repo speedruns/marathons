@@ -1,0 +1,46 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <h1 class="title">Pending Submissions</h1>
+
+  <div class="content">
+    <p>These Submissions do not have associated Run records, either because they have not yet been automatically converted, or they are invalid in some way (often because the given category does not exist, or the times were not able to be parsed automatically). To manually convert these runs, select one to go into the editor and modify it to be a valid Run.</p>
+  </div>
+
+  <table class="table is-fullwidth is-hoverable">
+    <thead>
+      <tr>
+        <th>Runner</th>
+        <th>Game / Category</th>
+        <th>Estimate / PB</th>
+        <th>Video</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for sub in pending_submissions %}
+        <tr>
+          <td>
+            <a href="/organizer/runs/convert/{{sub.id}}">
+              {{ sub.account.name }}
+            </a>
+          </td>
+
+          <td>
+            <strong>{{ sub.game.name }}</strong>
+            <br/>
+            {{ sub.category_name }}
+          </td>
+
+          <td>
+            <strong>{{ sub.estimate }}</strong>
+            <br/>
+            {{sub.pb}}
+          </td>
+
+          <td>{{ sub.video_link|urlize(nofollow=true) }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

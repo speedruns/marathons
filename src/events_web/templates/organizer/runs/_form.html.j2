@@ -1,0 +1,114 @@
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="game_id">Game</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control is-expanded">
+        <div class="select is-fullwidth">
+          <select name="game_id">
+            {% for game in games %}
+              <option
+                value="{{game.id}}"
+                {% if game.id == run.game_id %}
+                  selected
+                {% endif %}
+              >{{game.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="category_id">Category</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control is-expanded">
+        <div class="select is-fullwidth">
+          <select name="category_id">
+            {% for category in categories %}
+              <option
+                value="{{category.id}}"
+                {% if category.id == run.category_id %}
+                  selected
+                {% endif %}
+              >{{category.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="estimate">Estimate</label>
+  </div>
+  <div class="field-body">
+    <div class="field has-addons">
+      <div class="control is-expanded">
+        <input class="input" type="text" name="estimate_hours" required value="{{run.estimate}}" placeholder="00">
+      </div>
+      <div class="control is-expanded">
+        <input class="input" type="text" name="estimate_minutes" required value="{{run.estimate}}" placeholder="00">
+      </div>
+      <div class="control is-expanded">
+        <input class="input" type="text" name="estimate_seconds" required value="{{run.estimate}}" placeholder="00">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="pb">PB</label>
+  </div>
+  <div class="field-body">
+    <div class="field has-addons">
+      <div class="control is-expanded">
+        <input class="input" type="text" name="pb_hours" required value="{{run.pb}}" placeholder="00">
+      </div>
+      <div class="control is-expanded">
+        <input class="input" type="text" name="pb_minutes" required value="{{run.pb}}" placeholder="00">
+      </div>
+      <div class="control is-expanded">
+        <input class="input" type="text" name="pb_seconds" required value="{{run.pb}}" placeholder="00">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="video_link">Video Link</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control is-expanded">
+        <input class="input" type="text" name="video_link" value="{{run.video_link|d('')}}" placeholder="pb vod, marathon run, etc. (optional)">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="description">Comments</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control is-expanded">
+        <textarea class="textarea" name="description" placeholder="Do you want to race with someone? Anything else we should know?&#10;Comments are not publicly visible.">{{run.description|d('')}}</textarea>
+      </div>
+    </div>
+  </div>
+</div>

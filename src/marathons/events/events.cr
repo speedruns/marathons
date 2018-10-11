@@ -169,7 +169,7 @@ module Events
 
   def create_run(attrs)
     run = Run.new.cast(attrs)
-    Repo.insert(Run)
+    Repo.insert(run)
   end
 
   def update_run(run : Run, changes)
@@ -179,5 +179,12 @@ module Events
 
   def delete_run(run_id)
     Repo.delete_all(Run, Query.where(id: run_id))
+  end
+
+  def run_from_submission(submission : Submission)
+    run_params = submission.to_h
+    run_params["runner_id"] = submission.account_id
+
+    Run.new.cast(run_params)
   end
 end

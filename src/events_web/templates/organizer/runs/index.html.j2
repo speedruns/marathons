@@ -1,0 +1,58 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <h1 class="title">Runs</h1>
+
+  <div class="content">
+    <div class="field is-grouped">
+      <p class="control">
+        <a href="/organizer/runs/convert" class="button is-primary">Check Pending Submissions</a>
+      </p>
+    </div>
+  </div>
+
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Runner</th>
+        <th>Game / Category</th>
+        <th>Estimate / PB</th>
+        <th>Video</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th class="title is-6" colspan="10">All Runs</th>
+      </tr>
+        {% for run in runs %}
+          <tr>
+            <td>
+              {{ run.runner.name }}
+              <br>
+              {% if run.runner.twitch %}
+                <a href="https://twitch.tv/{{run.runner.twitch}}"><i class="fab fa-twitch fa-fw"></i></a>
+              {% endif %}
+              {% if run.runner.twitter %}
+                <a href="https://twitter.com/{{run.runner.twitter}}"><i class="fab fa-twitter fa-fw"></i></a>
+              {% endif %}
+            </td>
+
+            <td>
+              <strong>{{ run.game.name }}</strong>
+              <br/>
+              {{ run.category.name }}
+            </td>
+
+            <td>
+              <strong>{{ run.estimate }}</strong>
+              <br/>
+              {{run.pb}}
+            </td>
+
+            <td>{{ run.video_link|urlize(nofollow=true) }}</td>
+          </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

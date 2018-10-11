@@ -4,10 +4,11 @@ CREATE TABLE IF NOT EXISTS "public"."ev_runs" (
   "event_id" integer,
   "runner_id" integer,
   "submission_id" integer,
+  "description" text,
   "video_link" text,
-  "estimate" text,
-  "pb" text,
-  "time" text,
+  "estimate" integer,
+  "pb" integer,
+  "time" integer,
   "game_id" integer,
   "category_id" integer,
   "created_at" timestamp without time zone,
@@ -41,7 +42,6 @@ CREATE TABLE IF NOT EXISTS "public"."ev_schedulings" (
   FOREIGN KEY ("schedule_id") REFERENCES "public"."ev_schedules"("id"),
   FOREIGN KEY ("run_id") REFERENCES "public"."ev_runs"("id")
 );
-
 
 
 -- +migrate down

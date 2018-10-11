@@ -49,6 +49,12 @@ router EventsWebRouter do
     get "/submissions", controller: Organizer::SubmissionsController, action: index, helper: "submissions"
 
     resources :schedules, controller: Organizer::SchedulesController
+
+    # Runs
+    get   "/runs", controller: Organizer::RunsController, action: index, helper: "runs"
+    get   "/runs/convert", controller: Organizer::RunConversionsController, action: index, helper: "runs_convert"
+    post  "/runs/convert", controller: Organizer::RunConversionsController, action: create
+    get   "/runs/convert/:submission_id", controller: Organizer::RunConversionsController, action: show
   end
 
 
