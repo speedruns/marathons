@@ -14,6 +14,7 @@
   <table class="table is-fullwidth">
     <thead>
       <tr>
+        <th></th>
         <th>Runner</th>
         <th>Game / Category</th>
         <th>Estimate / PB</th>
@@ -27,6 +28,11 @@
       </tr>
         {% for run in runs %}
           <tr>
+            <td>
+              <a href="/organizer/runs/{{run.id}}/edit">
+                <i class="fa fa-edit"></i>
+              </a>
+            </td>
             <td>
               {{ run.runner.name }}
               <br>
@@ -45,9 +51,9 @@
             </td>
 
             <td>
-              <strong>{{ run.estimate }}</strong>
+              <strong>{{ run.estimate_formatted }}</strong>
               <br/>
-              {{run.pb}}
+              {{ run.pb_formatted }}
             </td>
 
             <td>{{ run.video_link|urlize(nofollow=true) }}</td>

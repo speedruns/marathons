@@ -51,10 +51,13 @@ router EventsWebRouter do
     resources :schedules, controller: Organizer::SchedulesController
 
     # Runs
-    get   "/runs", controller: Organizer::RunsController, action: index, helper: "runs"
     get   "/runs/convert", controller: Organizer::RunConversionsController, action: index, helper: "runs_convert"
     post  "/runs/convert", controller: Organizer::RunConversionsController, action: create
     get   "/runs/convert/:submission_id", controller: Organizer::RunConversionsController, action: show
+    resources :runs, controller: Organizer::RunsController do
+      get "/delete", controller: Organizer::RunsController, action: delete
+    end
+    post "/runs/:run_id", controller: Organizer::RunsController, action: update
   end
 
 

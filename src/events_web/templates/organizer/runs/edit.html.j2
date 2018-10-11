@@ -1,0 +1,23 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+  <form action="/organizer/runs/{{run.id}}" method="POST">
+    {% include "organizer/runs/_form.html.j2" %}
+
+    <div class="field is-horizontal">
+      <div class="field-label">
+      </div>
+      <div class="field-body">
+        <div class="field is-grouped">
+          <div class="control">
+            <input class="button is-primary" type="submit" value="Submit">
+          </div>
+
+          <div class="control">
+            <a class="button is-danger" data-confirm="true" href="/organizer/runs/{{run.id}}/delete">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+{% endblock %}

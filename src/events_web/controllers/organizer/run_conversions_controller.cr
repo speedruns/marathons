@@ -27,6 +27,9 @@ class Organizer::RunConversionsController < EventsWebController
     categories = Inventory.list_categories(Query.where(game_id: submission.game_id))
     run_changeset = Events.run_from_submission(submission)
 
+    run_changeset.instance.estimate ||= 0
+    run_changeset.instance.pb ||= 0
+
     render("organizer/run_conversions/show.html.j2", {
       "submission" => submission.to_h,
       "changeset" => run_changeset.to_h,
@@ -38,16 +41,8 @@ class Organizer::RunConversionsController < EventsWebController
 
   def create
     params = HTTP::Params.parse(request.body.not_nil!.gets_to_end).to_h
-    estimate_ms = Time::Span.new(
-      params["estimate_hours"].to_i,
-      params["estimate_minutes"].to_i,
-      params["estimate_seconds"].to_i
-    ).total_milliseconds
-    pb_ms = Time::Span.new(
-      params["pb_hours"].to_i,
-      params["pb_minutes"].to_i,
-      params["pb_seconds"].to_i
-    ).total_milliseconds
+    estimate_ms = Util::TimeParse.time_parts_to_milliseconds(params["estimate_hours"].to_i, params["estimate_minutes"].to_i, params["estimate_seconds"].to_i)
+    pb_ms = Util::TimeParse.time_parts_to_milliseconds(params["pb_hours"].to_i, params["pb_minutes"].to_i, params["pb_seconds"].to_i)
 
     params = params.merge({
       "event_id" => context.event.id,

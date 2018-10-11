@@ -2,7 +2,7 @@ class EventsWebController
   include Orion::ControllerHelper
   include EventsWebRouter::Helpers
 
-  def redirect_to(location, status : Int32 = 301)
+  def redirect_to(location, status : Int32 = 302)
     response.headers.add "Location", location
     response.status_code = status
   end

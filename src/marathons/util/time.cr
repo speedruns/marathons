@@ -35,12 +35,19 @@ module Util
     def to_milliseconds(time_string : Nil); nil; end
 
 
+    def time_parts_to_milliseconds(hours, minutes, seconds, ms=0)
+      hours * 3_600_000 +
+      minutes * 60_000 +
+      seconds * 1000 +
+      ms
+    end
+
+
     def format_time(time : Nil); ""; end
     def format_time(time : Time::Span)
       "#{time.hours}:#{time.minutes}:#{time.seconds}.#{time.milliseconds}"
     end
     def format_time(ms : Int)
-      puts "Calling with ms"
       h = ms / 1000 / 60 / 60
       m = ms / 1000 / 60 % 60
       s = ms / 1000 % 60
@@ -48,7 +55,6 @@ module Util
       sprintf("%02d:%02d:%02d.%03d", h, m, s, ms)
     end
     def format_time(time : String)
-      puts "Calling with string"
       if ms = to_milliseconds(time)
         format_time(ms)
       else
