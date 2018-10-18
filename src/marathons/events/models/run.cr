@@ -14,6 +14,8 @@ module Events
       field :pb, Int64
       field :time, Int64
 
+      field :status, String, default: "pending"
+
 
       # To allow for schedule drafting and backups, runs have a many-to-many
       # relationship with schedules.
@@ -33,6 +35,8 @@ module Events
     validate_required :category_id
     validate_required :estimate
 
+    validate_inclusion :status, ["pending", "accepted", "bonus", "declined"]
+
 
     def to_h
       {
@@ -45,6 +49,7 @@ module Events
         "estimate_formatted" => Util::TimeParse.format_time(estimate),
         "pb_formatted" => Util::TimeParse.format_time(pb),
         "time_formatted" => Util::TimeParse.format_time(time),
+        "status" => status,
         "event_id" => event_id,
         "event" => event?.try(&.to_h),
         "runner_id" => runner_id,
