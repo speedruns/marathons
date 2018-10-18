@@ -187,4 +187,36 @@ module Events
 
     Run.new.cast(run_params)
   end
+
+
+
+  ###
+  # Races
+  ###
+
+  def list_races(query : Query = Query.new)
+    Repo.all(Race, query)
+  end
+
+  def get_race(race_id, query : Query = Query.new)
+    Repo.all(Race, query.where(id: race_id).limit(1)).first?
+  end
+
+  def new_race()
+    Race.new
+  end
+
+  def create_race(attrs)
+    race = Race.new.cast(attrs)
+    Repo.insert(race)
+  end
+
+  def update_race(race : Race, changes)
+    changeset = race.cast(changes)
+    Repo.update(changeset)
+  end
+
+  def delete_race(race_id)
+    Repo.delete_all(Race, Query.where(id: race_id))
+  end
 end

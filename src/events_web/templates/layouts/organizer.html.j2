@@ -5,27 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/assets/css/custom.css">
 
     <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+    {% block scripts %}{% endblock %}
   </head>
 
   <body>
     {% include "layouts/_navbar.html.j2" %}
-
-    <section class="hero is-small is-primary is-bold">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">
-            {{conn.event.name}}
-          </h1>
-          <h2 class="subtitle">
-            November 17th-18th 2018
-          </h2>
-        </div>
-      </div>
-    </section>
-
 
     <section class="section">
       <main>
@@ -35,4 +23,6 @@
       </main>
     </section>
   </body>
+
+  {% block postscripts %}{% endblock %}
 </html>

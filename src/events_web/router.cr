@@ -5,6 +5,9 @@ router EventsWebRouter do
   scope "css" do
     use HTTP::StaticFileHandler.new("public/", fallthrough: false, directory_listing: false)
   end
+  scope "js" do
+    use HTTP::StaticFileHandler.new("public/", fallthrough: false, directory_listing: false)
+  end
 
   ## App Routes
   use SessionHandler
@@ -68,4 +71,18 @@ router EventsWebRouter do
 
   ## Errors
   match "404", controller: ErrorsController, action: error_404
+
+
+
+  ## API
+  scope "api", helper_prefix: "api" do
+    use APIHandler
+    use AuthenticationHandler
+
+    scope "organizer", helper_prefix: "organizer" do
+      use AuthorizationHandler.new(required_level: :organizer)
+
+      get "/runs", controller: API::Organizer::RunsController, action: index, helper: "runs"
+    end
+  end
 end

@@ -21,8 +21,7 @@ module Events
         "event" => event? ? event.to_h : nil,
         "title" => title,
         "start_time" => start_time,
-        "end_time" => end_time,
-        "runs" => runs.map(&.to_h)
+        "end_time" => end_time
       }
     end
   end

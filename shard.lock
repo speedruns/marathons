@@ -2,7 +2,7 @@ version: 1.0
 shards:
   crecto:
     github: faultyserver/crecto
-    commit: 5dd713c47d32594062bbe6384b599dc6023664b3
+    commit: eb3a7ecfd9a4a775a3b3e522b8a4b689e8860c76
 
   crinja:
     github: straight-shoota/crinja
