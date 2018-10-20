@@ -84,7 +84,7 @@
   <div class="control">
     <div class="select">
       <select name="state">
-        {% for state in ['draft', 'accepting_submissions', 'closed'] %}
+        {% for state in ['draft', 'accepting_submissions', 'decided', 'scheduled', 'closed'] %}
           <option
             value="{{state}}"
             {% if state == event.state %}

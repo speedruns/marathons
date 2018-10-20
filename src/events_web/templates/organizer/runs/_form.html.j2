@@ -112,3 +112,30 @@
     </div>
   </div>
 </div>
+
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="status">Acceptance Status</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control is-expanded">
+        <div class="select is-fullwidth">
+          <select name="status">
+            {% for status in ["pending", "accepted", "bonus", "declined"] %}
+              <option
+                value="{{status}}"
+                {% if status == run.status %}
+                  selected
+                {% endif %}
+              >
+                {{ status | title}}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

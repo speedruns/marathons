@@ -57,7 +57,21 @@
               {{ run.pb_formatted }}
             </td>
 
-            <td>{{ run.status }}</td>
+            <td>
+              {% if run.status == "accepted" %}
+                <span class="has-text-success">
+                  <i class="fas fa-check"></i>
+                  accepted
+                </span>
+              {% elif run.status == "declined" %}
+                <span class="has-text-danger">
+                  <i class="fas fa-times"></i>
+                  declined
+                </span>
+              {% else %}
+                undecided
+              {% endif %}
+            </td>
 
             <td>{{ run.video_link|urlize(nofollow=true) }}</td>
           </tr>

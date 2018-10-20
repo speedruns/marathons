@@ -45,14 +45,14 @@ module Util
 
     def format_time(time : Nil); ""; end
     def format_time(time : Time::Span)
-      "#{time.hours}:#{time.minutes}:#{time.seconds}.#{time.milliseconds}"
+      "#{time.hours}:#{time.minutes}:#{time.seconds}"
     end
     def format_time(ms : Int)
       h = ms / 1000 / 60 / 60
       m = ms / 1000 / 60 % 60
       s = ms / 1000 % 60
       ms = ms % 1000
-      sprintf("%02d:%02d:%02d.%03d", h, m, s, ms)
+      sprintf("%02d:%02d:%02d", h, m, s)
     end
     def format_time(time : String)
       if ms = to_milliseconds(time)

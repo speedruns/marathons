@@ -1,0 +1,77 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block main %}
+
+  <div class="content">
+    <h1 class="title">Runs</h1>
+
+    <p>The run list for this year's event is now public! All of the runs below will be shown in the marathon. Multiple runs of the same game/category mean that the runs will be featured as a race.</p>
+
+    <p>The order of the runs below is not representative of their order in the marathon. A full schedule will be made available on November 4th, after all runners' availability has been confirmed.</p>
+  </div>
+
+
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Run</th>
+        <th>Estimate</th>
+        <th>Runner</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% if profile_runs|length > 0 %}
+        {% for run in profile_runs %}
+          <tr>
+            <td>
+              <strong>{{ run.game.name }}</strong>
+              &mdash;
+              {{ run.category.name }}
+            </td>
+
+            <td>
+              {{ run.estimate_formatted }}
+            </td>
+
+            <td>
+              {{ run.runner.name }}
+              &nbsp;
+              {% if run.runner.twitch %}
+                <a href="https://twitch.tv/{{run.runner.twitch}}"><i class="fab fa-twitch fa-fw"></i></a>
+              {% endif %}
+              {% if run.runner.twitter %}
+                <a href="https://twitter.com/{{run.runner.twitter}}"><i class="fab fa-twitter fa-fw"></i></a>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      {% endif %}
+
+      {% for run in runs %}
+        <tr>
+          <td>
+            <strong>{{ run.game.name }}</strong>
+            &mdash;
+            {{ run.category.name }}
+          </td>
+
+          <td>
+            {{ run.estimate_formatted }}
+          </td>
+
+          <td>
+            {{ run.runner.name }}
+            &nbsp;
+            {% if run.runner.twitch %}
+              <a href="https://twitch.tv/{{run.runner.twitch}}"><i class="fab fa-twitch fa-fw"></i></a>
+            {% endif %}
+            {% if run.runner.twitter %}
+              <a href="https://twitter.com/{{run.runner.twitter}}"><i class="fab fa-twitter fa-fw"></i></a>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
