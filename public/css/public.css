@@ -25,48 +25,6 @@
 /* Dragula base style */
 .gu-mirror{position:fixed!important;margin:0!important;z-index:9999!important;opacity:.8;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";filter:alpha(opacity=80)}.gu-hide{display:none!important}.gu-unselectable{-webkit-user-select:none!important;-moz-user-select:none!important;-ms-user-select:none!important;user-select:none!important}.gu-transit{opacity:.2;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";filter:alpha(opacity=20)}
 
-
-.schedule-container {
-  min-height: 100px;
-  padding: 0.5em;
-  border-radius: 7px;
-  background-color: rgba(0,0,0,0.1);
-  margin-bottom: 1em;
-}
-
-.schedule-entry {
-  display: flex;
-}
-
-.schedule-entry__time {
-  flex: 0 0 120px;
-}
-
-.schedule-entry__slot {
-  flex: 1 1 auto;
-}
-
-.run-slot {
-  margin-bottom: 0.5em;
-}
-
-.run-slot--empty {
-  border: 1px solid var(--border-color--light);
-  border-radius: 7px;
-  background-color: #eee;
-}
-
-.run-slot__empty {
-  display: block;
-  padding: 0.7em 1em;
-}
-
-
-.run-slot .run-selector {
-  margin: 0.5em;
-}
-
-
 .run {
   padding: 0.7em 1em;
   background-color: #fff;
@@ -82,4 +40,42 @@
 
 .run .time {
   text-align: right;
+}
+
+
+
+.horaro-schedule {
+  width: 100%;
+  display: block;
+}
+
+.horaro-schedule__date-row {
+  border-bottom: 1px solid var(--border-color--navbar);
+  font-size: 1.25rem;
+  margin-top: 1rem;
+}
+
+.horaro-schedule-entry {
+}
+
+.horaro-schedule-entry__game {
+  font-weight: bold;
+  display: block;
+}
+
+.horaro-schedule-entry__category {
+
+}
+
+.horaro-schedule-entry__runners {
+  font-weight: bold;
+  display: block;
+}
+
+.horaro-schedule-entry__estimate {
+
+}
+
+.horaro-schedule-entry__start-time {
+
 }

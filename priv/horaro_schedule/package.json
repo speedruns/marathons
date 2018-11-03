@@ -1,0 +1,24 @@
+{
+  "license": "MIT",
+  "dependencies": {
+    "components": "^0.1.0",
+    "preact": "^8.3.1",
+    "preact-compat": "^3.18.4",
+    "preact-redux": "^2.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "babel-preset-env": "^1.7.0",
+    "parcel-bundler": "^1.10.3"
+  },
+  "scripts": {
+    "start": "parcel watch src/index.js -d ../../public/js --out-file horaro_schedule.js --no-hmr",
+    "build": "parcel build src/index.js -d ../../public/js --out-file horaro_schedule.js"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ],
+    "plugins": []
+  }
+}

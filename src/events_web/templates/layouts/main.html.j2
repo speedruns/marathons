@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/public.css">
 
     <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+    {% block scripts %}{% endblock %}
   </head>
 
   <body>
@@ -17,12 +18,23 @@
     <section class="hero is-small is-primary is-bold">
       <div class="hero-body">
         <div class="container">
-          <h1 class="title">
-            {{conn.event.name}}
-          </h1>
-          <h2 class="subtitle">
-            November 17th-18th 2018
-          </h2>
+          <div class="level">
+            <div class="level-left">
+              <div>
+                <h1 class="title">
+                  {{conn.event.name}}
+                </h1>
+                <h2 class="subtitle">
+                  November 17th-18th 2018
+                </h2>
+              </div>
+            </div>
+
+            <div class="level-right">
+              {% block hero_content %}
+              {% endblock %}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -36,4 +48,6 @@
       </main>
     </section>
   </body>
+
+  {% block postscripts %}{% endblock %}
 </html>

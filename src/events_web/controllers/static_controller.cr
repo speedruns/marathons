@@ -22,6 +22,8 @@ class StaticController < EventsWebController
         "profile_runs" => profile_runs.map(&.to_h),
         "runs" => runs.map(&.to_h)
       })
+    when "scheduled"
+      render("static/home_scheduled.html.j2")
     else
       render("static/home.html.j2")
     end

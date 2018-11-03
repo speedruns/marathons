@@ -76,6 +76,9 @@ router EventsWebRouter do
 
   ## API
   scope "api", helper_prefix: "api" do
+    # public, unauthenticated API
+    get "/horaro/schedule/:schedule_id", controller: API::HoraroController, action: show
+
     use APIHandler
     use AuthenticationHandler
 

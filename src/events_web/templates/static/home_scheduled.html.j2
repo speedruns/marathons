@@ -1,0 +1,19 @@
+{% extends "layouts/main.html.j2" %}
+
+{% block hero_content %}
+  <h2 class="subtitle">The schedule for this year's event is now live!</h2>
+{% endblock %}
+
+{% block main %}
+  <div class="columns">
+    <div class="column is-offset-1 is-10">
+      <div id="horaro_schedule_container" data-schedule-id="{{conn.event.horaro_schedule_id}}">
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+
+{% block postscripts %}
+  <script src="/js/horaro_schedule.js"></script>
+{% endblock %}

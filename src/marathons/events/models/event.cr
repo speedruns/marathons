@@ -11,6 +11,8 @@ module Events
       field :twitch, String
       field :discord, String
 
+      field :horaro_schedule_id, String
+
       field :state, String, default: "draft"
 
       belongs_to :organization, Accounts::Organization
@@ -31,6 +33,7 @@ module Events
         "twitter" => twitter,
         "twitch" => twitch,
         "discord" => discord,
+        "horaro_schedule_id" => horaro_schedule_id,
         "state" => state,
         "subdomain" => subdomain,
         "organization_id" => organization_id,
