@@ -6,7 +6,11 @@
 
 {% block main %}
   <div class="columns">
-    <div class="column is-offset-1 is-10">
+    <div class="column">
+      <div class="content">
+        <p>{{conn.event.description|safe}}</p>
+      </div>
+
       <div id="horaro_schedule_container" data-schedule-id="{{conn.event.horaro_schedule_id}}">
       </div>
     </div>

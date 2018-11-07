@@ -14,7 +14,7 @@ class HoraroSchedule extends Component {
       <div class="horaro-schedule">
         <div class="content">
           <p>
-            Times shown below are in your current time zone. You can also <a class="has-text-gray-2" href={link} target="_blank" rel="noreferrer noopener">view this schedule on Horaro.</a>
+            The full schedule for this year's event is now live! Times shown below are in your current time zone. You can also <a class="has-text-gray-2" href={link} target="_blank" rel="noreferrer noopener">view this schedule on Horaro.</a>
           </p>
         </div>
 

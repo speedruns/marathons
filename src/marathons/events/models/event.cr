@@ -11,6 +11,7 @@ module Events
       field :twitch, String
       field :discord, String
 
+      field :description, String
       field :horaro_schedule_id, String
 
       field :state, String, default: "draft"
@@ -30,6 +31,7 @@ module Events
         "start_date" => start_date,
         "end_date" => end_date,
         "site_title" => site_title,
+        "description" => description,
         "twitter" => twitter,
         "twitch" => twitch,
         "discord" => discord,
