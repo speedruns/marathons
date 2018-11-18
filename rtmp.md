@@ -4,7 +4,7 @@ For online marathons, you'll need some way to get game feeds from runners onto y
 
 Setting up an RTMP server is much easier than it sounds. If you are at all familiar with using a Unix command line, you can go from nothing to a running server in about 10 minutes. They also use incredibly small amounts of CPU, and can run on any computer, all the way down to a Raspberry Pi! I like using DigitalOcean droplets for hosting because they have high bandwidth internet connections, I can make new ones across the globe to reduce latency and improve connection quality, and it's cheap and charged by the hour. For a 2 day event, you can run multiple servers the entire time for less than $8.
 
-_This guide is an expansion of [this RTMP setup guide](https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50/)
+_This guide is an expansion of [this RTMP setup guide](https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50/) from a few years ago, updated and expanded to provide a more complete stream management guide._
 
 
 ## Initial RTMP Setup
