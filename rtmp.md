@@ -89,6 +89,8 @@ Runner OBS Stream Key: my_dude
 VLC Stream URL: rtmp://stream.example.com/live/my_dude
 ```
 
+It's important to note that **the stream keys and URL are case sensitive**. For simplicity, it's easiest to tell runners to only use lowercase letters.
+
 ### Multi-server Setup
 
 If you have runners streaming from around the world, some of them may experience lots of dropped frames or latency from the server being too far away and their connection not being strong enough. The best thing to do in this situation is make a second server for them and have that server push the stream on to your main server.
