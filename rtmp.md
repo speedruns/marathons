@@ -80,6 +80,12 @@ rtmp {
 
 I won't bother explaining all of what's happening here, but essentially it's saying to make an RTMP server available on port 1935 (the default port for the RTMP protocol), then to make it available for other people to load.
 
+After adding the configuration, Nginx needs to reload to start using that configuration. For some reason, the `systemctl` service is not always registered, so directly reloading nginx is the safest bet:
+
+```
+sudo /usr/local/nginx/sbin/nginx -s reload
+```
+
 ### Testing streams and URLs
 
 Runners should stream to the server using the URL `rtmp://your.rtmp.server.com/live` and a stream key of your choosing. To test the stream, you can load it in VLC or any other network player at the same URL with their stream key appended to it. So, as an example:
