@@ -16,6 +16,7 @@ Once you have your machine booted up, you'll need to install the RTMP server sof
 This is a mostly automatic process that just takes a few commands to download and install everything. It does not matter where you run any of these commands from, as the install will automatically put them in the right places. First up, dependencies:
 
 ```
+sudo apt-get update
 sudo apt-get install build-essential libpcre3 libpcre3-dev libssl-dev
 apt-get install --reinstall zlibc zlib1g zlib1g-dev
 ```
